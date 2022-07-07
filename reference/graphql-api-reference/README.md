@@ -1,6 +1,6 @@
 # Graphql API Reference
 
-Dive into the specifics of each API endpoint by checking out our complete documentation.
+Each of the items listed below is what is known as a Valueflows Module. They can be individually enabled, and so looking at each one specifically will tell you which Graphql queries and mutations are accessible.
 
 ## Action
 
