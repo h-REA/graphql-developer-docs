@@ -1,34 +1,35 @@
-# Agent 
+# Agent
 
-## Queries 
+## Queries
 
-### `myAgent` 
+### `myAgent`
 
-### `agent` 
+> Status: Implemented
 
-### `organization` 
+### `agent`
 
-### `person` 
+### `organization`
 
-### `agents` 
+### `person`
 
-### `organizations` 
+### `agents`
 
-### `people` 
+### `organizations`
 
-## Mutations 
+### `people`
 
-### `associateMyAgent` 
+## Mutations
 
-### `createPerson` 
+### `associateMyAgent`
 
-### `updatePerson` 
+### `createPerson`
 
-### `deletePerson` 
+### `updatePerson`
 
-### `createOrganization` 
+### `deletePerson`
 
-### `updateOrganization` 
+### `createOrganization`
 
-### `deleteOrganization` 
+### `updateOrganization`
 
+### `deleteOrganization`
