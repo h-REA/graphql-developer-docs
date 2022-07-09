@@ -4,7 +4,7 @@ Each of the items listed below is what is known as a Valueflows Module. They can
 
 ## Action
 
-All the methods associated with `CRUD`ing some pets. Which isn't as weird as it sounds:
+Everything related to actions:
 
 {% content-ref url="action.md" %}
 [action.md](action.md)
