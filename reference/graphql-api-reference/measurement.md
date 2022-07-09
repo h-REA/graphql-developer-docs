@@ -1,16 +1,24 @@
-# Measurement 
+# Measurement
 
-## Queries 
+## Queries
 
-### `unit` 
+### `unit`
+> Status: Implemented
 
-### `units` 
+### `units`
+> Status: Implemented
 
-## Mutations 
+## Mutations
 
-### `createUnit` 
+### `createUnit`
 
-### `updateUnit` 
+> Status: Implemented
 
-### `deleteUnit` 
+### `updateUnit`
+
+> Status: Implemented
+
+### `deleteUnit`
+
+> Status: Implemented
 

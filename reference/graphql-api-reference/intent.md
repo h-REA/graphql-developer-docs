@@ -1,16 +1,24 @@
-# Intent 
+# Intent
 
-## Queries 
+## Queries
 
-### `intent` 
+### `intent`
+> Status: Implemented
 
-### `intents` 
+### `intents`
+> Status: Implemented
 
-## Mutations 
+## Mutations
 
-### `createIntent` 
+### `createIntent`
 
-### `updateIntent` 
+> Status: Implemented
 
-### `deleteIntent` 
+### `updateIntent`
+
+> Status: Implemented
+
+### `deleteIntent`
+
+> Status: Implemented
 

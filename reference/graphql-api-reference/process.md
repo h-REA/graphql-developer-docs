@@ -1,16 +1,24 @@
-# Process 
+# Process
 
-## Queries 
+## Queries
 
-### `process` 
+### `process`
+> Status: Implemented
 
-### `processes` 
+### `processes`
+> Status: Implemented
 
-## Mutations 
+## Mutations
 
-### `createProcess` 
+### `createProcess`
 
-### `updateProcess` 
+> Status: Implemented
 
-### `deleteProcess` 
+### `updateProcess`
+
+> Status: Implemented
+
+### `deleteProcess`
+
+> Status: Implemented
 

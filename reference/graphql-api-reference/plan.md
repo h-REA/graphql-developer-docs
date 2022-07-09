@@ -1,14 +1,21 @@
-# Plan 
+# Plan
 
-## Queries 
+## Queries
 
-### `plan` 
+### `plan`
+> Status: Implemented
 
-## Mutations 
+## Mutations
 
-### `createPlan` 
+### `createPlan`
 
-### `updatePlan` 
+> Status: Implemented
 
-### `deletePlan` 
+### `updatePlan`
+
+> Status: Implemented
+
+### `deletePlan`
+
+> Status: Implemented
 

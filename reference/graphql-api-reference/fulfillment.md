@@ -1,16 +1,24 @@
-# Fulfillment 
+# Fulfillment
 
-## Queries 
+## Queries
 
-### `fulfillment` 
+### `fulfillment`
+> Status: Implemented
 
-### `fulfillments` 
+### `fulfillments`
+> Status: Implemented
 
-## Mutations 
+## Mutations
 
-### `createFulfillment` 
+### `createFulfillment`
 
-### `updateFulfillment` 
+> Status: Implemented
 
-### `deleteFulfillment` 
+### `updateFulfillment`
+
+> Status: Implemented
+
+### `deleteFulfillment`
+
+> Status: Implemented
 

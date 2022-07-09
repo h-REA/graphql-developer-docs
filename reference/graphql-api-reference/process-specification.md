@@ -1,16 +1,24 @@
-# Process Specification 
+# Process Specification
 
-## Queries 
+## Queries
 
-### `processSpecification` 
+### `processSpecification`
+> Status: Implemented
 
-### `processSpecifications` 
+### `processSpecifications`
+> Status: Implemented
 
-## Mutations 
+## Mutations
 
-### `createProcessSpecification` 
+### `createProcessSpecification`
 
-### `updateProcessSpecification` 
+> Status: Implemented
 
-### `deleteProcessSpecification` 
+### `updateProcessSpecification`
+
+> Status: Implemented
+
+### `deleteProcessSpecification`
+
+> Status: Implemented
 

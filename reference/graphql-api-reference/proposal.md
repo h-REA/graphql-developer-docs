@@ -1,24 +1,40 @@
-# Proposal 
+# Proposal
 
-## Queries 
+## Queries
 
-### `proposal` 
+### `proposal`
+> Status: Implemented
 
-### `proposals` 
+### `proposals`
+> Status: Implemented
 
-## Mutations 
+## Mutations
 
-### `createProposal` 
+### `createProposal`
 
-### `updateProposal` 
+> Status: Implemented
 
-### `deleteProposal` 
+### `updateProposal`
 
-### `proposeIntent` 
+> Status: Implemented
 
-### `deleteProposedIntent` 
+### `deleteProposal`
 
-### `proposeTo` 
+> Status: Implemented
 
-### `deleteProposedTo` 
+### `proposeIntent`
+
+> Status: Implemented
+
+### `deleteProposedIntent`
+
+> Status: Implemented
+
+### `proposeTo`
+
+> Status: Implemented
+
+### `deleteProposedTo`
+
+> Status: Implemented
 

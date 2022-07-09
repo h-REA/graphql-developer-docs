@@ -1,22 +1,34 @@
-# Observation 
+# Observation
 
-## Queries 
+## Queries
 
-### `economicEvent` 
+### `economicEvent`
+> Status: Implemented
 
-### `economicEvents` 
+### `economicEvents`
+> Status: Implemented
 
-### `economicResource` 
+### `economicResource`
+> Status: Implemented
 
-### `economicResources` 
+### `economicResources`
+> Status: Implemented
 
-## Mutations 
+## Mutations
 
-### `createEconomicEvent` 
+### `createEconomicEvent`
 
-### `updateEconomicEvent` 
+> Status: Implemented
 
-### `deleteEconomicEvent` 
+### `updateEconomicEvent`
 
-### `updateEconomicResource` 
+> Status: Implemented
+
+### `deleteEconomicEvent`
+
+> Status: Implemented
+
+### `updateEconomicResource`
+
+> Status: Implemented
 

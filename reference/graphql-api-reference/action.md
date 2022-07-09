@@ -1,10 +1,12 @@
-# Action 
+# Action
 
-## Queries 
+## Queries
 
-### `action` 
+### `action`
+> Status: Implemented
 
-### `actions` 
+### `actions`
+> Status: Implemented
 
-## Mutations 
+## Mutations
 

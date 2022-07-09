@@ -1,16 +1,24 @@
-# Commitment 
+# Commitment
 
-## Queries 
+## Queries
 
-### `commitment` 
+### `commitment`
+> Status: Implemented
 
-### `commitments` 
+### `commitments`
+> Status: Implemented
 
-## Mutations 
+## Mutations
 
-### `createCommitment` 
+### `createCommitment`
 
-### `updateCommitment` 
+> Status: Implemented
 
-### `deleteCommitment` 
+### `updateCommitment`
+
+> Status: Implemented
+
+### `deleteCommitment`
+
+> Status: Implemented
 

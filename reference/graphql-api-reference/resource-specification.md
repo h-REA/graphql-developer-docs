@@ -1,16 +1,24 @@
-# Resource Specification 
+# Resource Specification
 
-## Queries 
+## Queries
 
-### `resourceSpecification` 
+### `resourceSpecification`
+> Status: Implemented
 
-### `resourceSpecifications` 
+### `resourceSpecifications`
+> Status: Implemented
 
-## Mutations 
+## Mutations
 
-### `createResourceSpecification` 
+### `createResourceSpecification`
 
-### `updateResourceSpecification` 
+> Status: Implemented
 
-### `deleteResourceSpecification` 
+### `updateResourceSpecification`
+
+> Status: Implemented
+
+### `deleteResourceSpecification`
+
+> Status: Implemented
 

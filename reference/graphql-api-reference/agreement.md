@@ -1,16 +1,24 @@
-# Agreement 
+# Agreement
 
-## Queries 
+## Queries
 
-### `agreement` 
+### `agreement`
+> Status: Implemented
 
-### `agreements` 
+### `agreements`
+> Status: Implemented
 
-## Mutations 
+## Mutations
 
-### `createAgreement` 
+### `createAgreement`
 
-### `updateAgreement` 
+> Status: Implemented
 
-### `deleteAgreement` 
+### `updateAgreement`
+
+> Status: Implemented
+
+### `deleteAgreement`
+
+> Status: Implemented
 

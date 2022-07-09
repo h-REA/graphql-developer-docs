@@ -1,16 +1,24 @@
-# Satisfaction 
+# Satisfaction
 
-## Queries 
+## Queries
 
-### `satisfaction` 
+### `satisfaction`
+> Status: Implemented
 
-### `satisfactions` 
+### `satisfactions`
+> Status: Implemented
 
-## Mutations 
+## Mutations
 
-### `createSatisfaction` 
+### `createSatisfaction`
 
-### `updateSatisfaction` 
+> Status: Implemented
 
-### `deleteSatisfaction` 
+### `updateSatisfaction`
+
+> Status: Implemented
+
+### `deleteSatisfaction`
+
+> Status: Implemented
 
