@@ -8,6 +8,12 @@
 ### `proposals`
 > Status: Implemented
 
+### `requests`
+> Status: Unimplemented
+
+### `offers`
+> Status: Unimplemented
+
 ## Mutations
 
 ### `createProposal`

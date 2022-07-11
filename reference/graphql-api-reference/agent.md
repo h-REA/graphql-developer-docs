@@ -23,6 +23,18 @@
 ### `people`
 > Status: Implemented
 
+### `agentRelationship`
+> Status: Unimplemented
+
+### `agentRelationships`
+> Status: Unimplemented
+
+### `agentRelationshipRole`
+> Status: Unimplemented
+
+### `agentRelationshipRoles`
+> Status: Unimplemented
+
 ## Mutations
 
 ### `associateMyAgent`
@@ -52,4 +64,28 @@
 ### `deleteOrganization`
 
 > Status: Implemented
+
+### `createAgentRelationship`
+
+> Status: Unimplemented
+
+### `updateAgentRelationship`
+
+> Status: Unimplemented
+
+### `deleteAgentRelationship`
+
+> Status: Unimplemented
+
+### `createAgentRelationshipRole`
+
+> Status: Unimplemented
+
+### `updateAgentRelationshipRole`
+
+> Status: Unimplemented
+
+### `deleteAgentRelationshipRole`
+
+> Status: Unimplemented
 
