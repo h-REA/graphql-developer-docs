@@ -4,6 +4,8 @@
 
 ### `Agent`
 
+A person or group or organization with economic agency.
+
 ## Queries
 
 ### `myAgent`

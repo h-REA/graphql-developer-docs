@@ -4,6 +4,9 @@
 
 ### `ResourceSpecification`
 
+Specification of a kind of resource. Could define a material item, service, digital item, currency account, etc.
+Used instead of a classification when more information is needed, particularly for recipes.
+
 ## Queries
 
 ### `resourceSpecification`

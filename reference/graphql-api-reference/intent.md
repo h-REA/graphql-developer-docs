@@ -4,6 +4,8 @@
 
 ### `Intent`
 
+A planned economic flow which has not been committed to, which can lead to economic events (sometimes through commitments).
+
 ## Queries
 
 ### `intent`

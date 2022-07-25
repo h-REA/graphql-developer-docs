@@ -4,6 +4,8 @@
 
 ### `Agreement`
 
+Any type of agreement among economic agents.
+
 ## Queries
 
 ### `agreement`

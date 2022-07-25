@@ -4,6 +4,8 @@
 
 ### `ProcessSpecification`
 
+Specifies the kind of process.
+
 ## Queries
 
 ### `processSpecification`

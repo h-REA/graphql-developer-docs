@@ -4,6 +4,8 @@
 
 ### `Commitment`
 
+A planned economic flow that has been promised by an agent to another agent.
+
 ## Queries
 
 ### `commitment`

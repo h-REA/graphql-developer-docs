@@ -4,6 +4,8 @@
 
 ### `Satisfaction`
 
+Represents many-to-many relationships between intents and commitments or events that partially or full satisfy one or more intents.
+
 ## Queries
 
 ### `satisfaction`
