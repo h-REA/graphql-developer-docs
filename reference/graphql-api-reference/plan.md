@@ -9,9 +9,11 @@ A logical collection of processes that constitute a body of planned work with de
 ## Queries
 
 ### `plan`
+
 > Status: Implemented
 
 ### `plans`
+
 > Status: Implemented
 
 ## Mutations

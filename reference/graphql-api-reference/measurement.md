@@ -10,9 +10,11 @@ From OM2 vocabulary.
 ## Queries
 
 ### `unit`
+
 > Status: Implemented
 
 ### `units`
+
 > Status: Implemented
 
 ## Mutations

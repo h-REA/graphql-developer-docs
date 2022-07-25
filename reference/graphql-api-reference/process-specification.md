@@ -9,9 +9,11 @@ Specifies the kind of process.
 ## Queries
 
 ### `processSpecification`
+
 > Status: Implemented
 
 ### `processSpecifications`
+
 > Status: Implemented
 
 ## Mutations

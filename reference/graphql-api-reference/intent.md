@@ -9,9 +9,11 @@ A planned economic flow which has not been committed to, which can lead to econo
 ## Queries
 
 ### `intent`
+
 > Status: Implemented
 
 ### `intents`
+
 > Status: Implemented
 
 ## Mutations

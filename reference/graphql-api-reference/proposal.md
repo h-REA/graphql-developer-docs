@@ -17,15 +17,19 @@ An agent to which the proposal is to be published.  A proposal can be published 
 ## Queries
 
 ### `proposal`
+
 > Status: Implemented
 
 ### `proposals`
+
 > Status: Implemented
 
 ### `requests`
+List all proposals that are being listed as requests.
 > Status: Unimplemented
 
 ### `offers`
+List all proposals that are being listed as offers.
 > Status: Unimplemented
 
 ## Mutations
@@ -43,7 +47,9 @@ An agent to which the proposal is to be published.  A proposal can be published 
 > Status: Implemented
 
 ### `proposeIntent`
-
+Include an existing intent as part of a proposal.
+@param publishedIn the (`Proposal`) to include the intent in
+@param publishes the (`Intent`) to include as part of the proposal
 > Status: Implemented
 
 ### `deleteProposedIntent`
@@ -51,7 +57,9 @@ An agent to which the proposal is to be published.  A proposal can be published 
 > Status: Implemented
 
 ### `proposeTo`
-
+Send a proposal to another agent.
+@param proposed the (`Proposal`) to send to an involved agent
+@param proposedTo the (`Agent`) to include in the proposal
 > Status: Implemented
 
 ### `deleteProposedTo`

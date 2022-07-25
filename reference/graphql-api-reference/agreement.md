@@ -9,9 +9,11 @@ Any type of agreement among economic agents.
 ## Queries
 
 ### `agreement`
+
 > Status: Implemented
 
 ### `agreements`
+
 > Status: Implemented
 
 ## Mutations

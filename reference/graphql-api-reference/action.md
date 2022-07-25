@@ -11,9 +11,11 @@ in order that references to `Action`s elsewhere in the system are easily readabl
 ## Queries
 
 ### `action`
+
 > Status: Implemented
 
 ### `actions`
+
 > Status: Implemented
 
 ## Mutations

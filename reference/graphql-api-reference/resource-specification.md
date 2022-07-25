@@ -10,9 +10,11 @@ Used instead of a classification when more information is needed, particularly f
 ## Queries
 
 ### `resourceSpecification`
+
 > Status: Implemented
 
 ### `resourceSpecifications`
+
 > Status: Implemented
 
 ## Mutations

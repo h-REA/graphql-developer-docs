@@ -9,9 +9,11 @@ Represents many-to-many relationships between commitments and economic events th
 ## Queries
 
 ### `fulfillment`
+
 > Status: Implemented
 
 ### `fulfillments`
+
 > Status: Implemented
 
 ## Mutations

@@ -9,9 +9,11 @@ Represents many-to-many relationships between intents and commitments or events 
 ## Queries
 
 ### `satisfaction`
+
 > Status: Implemented
 
 ### `satisfactions`
+
 > Status: Implemented
 
 ## Mutations

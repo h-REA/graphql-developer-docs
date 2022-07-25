@@ -9,9 +9,11 @@ An activity that changes inputs into outputs.  It could transform or transport e
 ## Queries
 
 ### `process`
+
 > Status: Implemented
 
 ### `processes`
+
 > Status: Implemented
 
 ## Mutations
