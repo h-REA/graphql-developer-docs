@@ -1,8 +1,15 @@
 # Plan
 
+## Classes
+
+### `Plan`
+
 ## Queries
 
 ### `plan`
+> Status: Implemented
+
+### `plans`
 > Status: Implemented
 
 ## Mutations

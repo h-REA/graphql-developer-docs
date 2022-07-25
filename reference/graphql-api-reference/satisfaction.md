@@ -1,5 +1,9 @@
 # Satisfaction
 
+## Classes
+
+### `Satisfaction`
+
 ## Queries
 
 ### `satisfaction`

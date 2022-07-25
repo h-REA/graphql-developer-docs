@@ -1,5 +1,9 @@
 # Commitment
 
+## Classes
+
+### `Commitment`
+
 ## Queries
 
 ### `commitment`

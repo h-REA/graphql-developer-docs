@@ -1,5 +1,9 @@
 # Process Specification
 
+## Classes
+
+### `ProcessSpecification`
+
 ## Queries
 
 ### `processSpecification`

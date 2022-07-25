@@ -1,5 +1,9 @@
 # Agreement
 
+## Classes
+
+### `Agreement`
+
 ## Queries
 
 ### `agreement`

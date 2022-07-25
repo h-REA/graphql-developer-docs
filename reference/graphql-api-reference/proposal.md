@@ -1,5 +1,13 @@
 # Proposal
 
+## Classes
+
+### `Proposal`
+
+### `ProposedIntent`
+
+### `ProposedTo`
+
 ## Queries
 
 ### `proposal`

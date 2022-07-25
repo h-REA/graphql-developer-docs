@@ -1,5 +1,9 @@
 # Action
 
+## Classes
+
+### `Action`
+
 ## Queries
 
 ### `action`

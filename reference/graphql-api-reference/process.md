@@ -1,5 +1,9 @@
 # Process
 
+## Classes
+
+### `Process`
+
 ## Queries
 
 ### `process`

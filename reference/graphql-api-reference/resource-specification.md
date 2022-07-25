@@ -1,5 +1,9 @@
 # Resource Specification
 
+## Classes
+
+### `ResourceSpecification`
+
 ## Queries
 
 ### `resourceSpecification`

@@ -1,5 +1,9 @@
 # Intent
 
+## Classes
+
+### `Intent`
+
 ## Queries
 
 ### `intent`

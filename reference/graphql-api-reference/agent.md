@@ -1,5 +1,9 @@
 # Agent
 
+## Classes
+
+### `Agent`
+
 ## Queries
 
 ### `myAgent`

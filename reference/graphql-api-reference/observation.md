@@ -1,5 +1,11 @@
 # Observation
 
+## Classes
+
+### `EconomicEvent`
+
+### `EconomicResource`
+
 ## Queries
 
 ### `economicEvent`

@@ -1,5 +1,9 @@
 # Measurement
 
+## Classes
+
+### `Unit`
+
 ## Queries
 
 ### `unit`
