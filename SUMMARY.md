@@ -1,7 +1,8 @@
 # Table of contents
 
 * [Welcome!](README.md)
-* [Quick Start](quick-start.md)
+* [Quick Start - API Explorer](quick-start.md)
+* [Quick Start - Integrate](quick-start-integrate.md)
 
 ## Reference
 
