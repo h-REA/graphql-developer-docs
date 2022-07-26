@@ -6,7 +6,7 @@ description: >-
 
 # Quick Start - Integrate
 
-First, this guide assumes that you have a nodejs project which uses `npm` to manage dependencies. You can replace `npm` commands with the relevant commands for your package manager of choice. The main library we are dealing the interface of here is this library: `@valueflows/vf-graphql-holochain`.
+First, this guide assumes that you have a nodejs project which uses `npm` to manage dependencies. You can replace `npm` commands with the relevant commands for your package manager of choice. The main library we are dealing the interface of here is this library: `@valueflows/vf-graphql-holochain`, hosted on `npm`.
 
 From your terminal, navigate to the folder where your project source files are located within.
 
@@ -49,7 +49,7 @@ When running a holochain service, it can be instructed to setup a websocket serv
 `REACT_APP_HC_CONN_URL='ws://localhost:4000'`
 
 {% hint style="info" %}
-`If you are looking to release to the Holochain Launcher, during your build process, if you have one, make sure to set both of these values to '' empty, as the Launcher will assist your client to negogiate these values automatically through some` [`'magical introspection'`](https://github.com/holochain/holochain-client-js/blob/cc9563ca5db448cd03f7e298e4fd71fc1625cbcd/src/environments/launcher.ts)`.`&#x20;
+If you are looking to release to the Holochain Launcher, during your build process, if you have one, make sure to set both of these values to '' empty, as the Launcher will assist your client to negogiate these values automatically through some ['magical introspection'](https://github.com/holochain/holochain-client-js/blob/cc9563ca5db448cd03f7e298e4fd71fc1625cbcd/src/environments/launcher.ts).&#x20;
 {% endhint %}
 
 ### Imports
