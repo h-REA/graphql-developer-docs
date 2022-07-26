@@ -6,7 +6,7 @@ description: >-
 
 # Quick Start - Integrate
 
-First, this guide assumes that you have a nodejs project which uses `npm` to manage dependencies. You can replace `npm` commands with the relevant commands for your package manager of choice. The main library we are dealing the interface of here is this library: `@valueflows/vf-graphql-holochain`, hosted on `npm`.
+First, this guide assumes that you have a nodejs project which uses `npm` to manage dependencies. You can replace `npm` commands with the relevant commands for your package manager of choice. The main library we are dealing with the interface of here is this library: `@valueflows/vf-graphql-holochain`, hosted on `npm`.
 
 From your terminal, navigate to the folder where your project source files are located within.
 
