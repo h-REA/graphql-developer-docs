@@ -1,4 +1,11 @@
-# Quick Start
+---
+description: >-
+  This guide is intended as a way to help you discover and familiarize with the
+  APIs, as opposed to integrating it into your project. For that check out the
+  "Quick Start - Integrate" guide.
+---
+
+# Quick Start - API Explorer
 
 The best way to get up and running quickly, and able to experiment with the APIs is to run a pre-packaged distributable version of the "full suite" of hREA functionality. How you will run it is similar to how other people in the future may run the application you develop. What you will be accessing is a Graphql Explorer: a system for viewing and running raw Graphql queries without writing any additional code.
 
