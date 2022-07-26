@@ -37,7 +37,7 @@ From here on out, the implementation details depend on which javascript framewor
 
 <details>
 
-<summary>React</summary>
+<summary>Apollo Client (React, or others)</summary>
 
 In addition to the above, follow these additional steps.
 
@@ -52,9 +52,14 @@ Run this command:
 In whatever entry point file is most relevant for you, add these lines to your imports:
 
 ```javascript
-import { gql } from '@apollo/client'
+import {
+  ApolloClient,
+  ApolloProvider,
+  InMemoryCache,
+  NormalizedCacheObject,
+  gql,
+} from '@apollo/client'
 import { SchemaLink } from '@apollo/client/link/schema'
-import bindSchema, { autoConnect, VfModule } from '@valueflows/vf-graphql-holochain'
 ```
 
 
@@ -63,15 +68,17 @@ Assuming that you have the variable `schema` defined in scope, as outlined in th
 
 ```javascript
 const link = new SchemaLink({ schema })
+const cache = new InMemoryCache()
+const client = new ApolloClient({
+  cache: cache,
+  link: link,
+})
 ```
 
-Later, to call the connection, you can use the following
+Everything is configured now, and you're ready to make your first requests!&#x20;
 
-```javascript
- const someGraphqlQuery = gql`     
-   write your query here
- `
-link.request(someGraphqlQuery)
-```
+To continue with this, see Step 4 and beyond in this @apollo/client getting started tutorial: [https://www.apollographql.com/docs/react/get-started](https://www.apollographql.com/docs/react/get-started)
+
+
 
 </details>
