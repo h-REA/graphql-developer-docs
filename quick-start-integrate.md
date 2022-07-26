@@ -1,6 +1,10 @@
+---
+description: >-
+  This guide is intended to assist with bringing the library into your project
+  which enables making GraphQL calls into the holochain-based hREA 'backend'.
+---
+
 # Quick Start - Integrate
-
-
 
 First, this guide assumes that you have a nodejs project which uses `npm` to manage dependencies. You can replace `npm` commands with the relevant commands for your package manager of choice.
 
