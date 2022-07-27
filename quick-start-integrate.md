@@ -6,13 +6,13 @@ description: >-
 
 # Quick Start - Integrate
 
-First, this guide assumes that you have a nodejs project which uses `npm` to manage dependencies. You can replace `npm` commands with the relevant commands for your package manager of choice. The main library we are dealing with the interface of here is this library: `@valueflows/vf-graphql-holochain`, hosted on `npm`.
+First, this guide assumes that you have a nodejs project which uses `npm` to manage dependencies. You can replace `npm` commands with the relevant commands for your package manager of choice. The main library we are dealing with the interface of here is this library: `@vf-ui/graphql-client-holochain`, hosted on `npm`.
 
 From your terminal, navigate to the folder where your project source files are located within.
 
 Run the following commands:
 
-`npm install --save @valueflows/vf-graphql-holochain`
+`npm install --save @vf-ui/graphql-client-holochain`
 
 `npm install --save graphql@16.2.0`
 
@@ -49,7 +49,7 @@ When running a holochain service, it can be instructed to setup a websocket serv
 `REACT_APP_HC_CONN_URL='ws://localhost:4000'`
 
 {% hint style="info" %}
-If you are looking to release to the Holochain Launcher, during your build process, if you have one, make sure to set both of these values to '' empty, as the Launcher will assist your client to negogiate these values automatically through some ['magical introspection'](https://github.com/holochain/holochain-client-js/blob/cc9563ca5db448cd03f7e298e4fd71fc1625cbcd/src/environments/launcher.ts).&#x20;
+If you are looking to release to the [**Holochain Launcher**](https://github.com/holochain/launcher), during your build process, if you have one, make sure to set both of these values to '' empty, as the Launcher will assist your client to negotiate these values automatically through some ['magical introspection'](https://github.com/holochain/holochain-client-js/blob/cc9563ca5db448cd03f7e298e4fd71fc1625cbcd/src/environments/launcher.ts).&#x20;
 {% endhint %}
 
 ### Imports
@@ -57,7 +57,7 @@ If you are looking to release to the Holochain Launcher, during your build proce
 In whatever entry point file is most relevant for you, add these lines to your imports:
 
 ```javascript
-import bindSchema, { autoConnect, VfModule } from '@valueflows/vf-graphql-holochain'
+import graphqlClientHolochain from '@vf-ui/graphql-client-holochain'
 ```
 
 ### Variables to hold in memory
@@ -65,56 +65,12 @@ import bindSchema, { autoConnect, VfModule } from '@valueflows/vf-graphql-holoch
 Elsewhere in your code, somewhere near the entry point and in a high level or global scope, trigger the websocket to be connected, and the Graphql Schema to be set up.
 
 ```javascript
-    const { dnaConfig, conductorUri } = await autoConnect()
-    const schema = await bindSchema({ dnaConfig, conductorUri })
+    const connectionOpts = {}
+    const client = await graphqlClientHolochain(connectionOpts)
 ```
 
-From here on out, the implementation details depend on which javascript framework (or not) you're using.
-
-<details>
-
-<summary>Apollo Client (React, or others)</summary>
-
-In addition to the above, follow these additional steps.
-
-
-
-Run this command:
-
-`npm install --save @apollo/client@3.5.7`
-
-
-
-In whatever entry point file is most relevant for you, add these lines to your imports:
-
-```javascript
-import {
-  ApolloClient,
-  ApolloProvider,
-  InMemoryCache,
-  NormalizedCacheObject,
-  gql,
-} from '@apollo/client'
-import { SchemaLink } from '@apollo/client/link/schema'
-```
-
-
-
-Assuming that you have the variable `schema` defined in scope, as outlined in the initial section of this page, add the following line just after it.
-
-```javascript
-const link = new SchemaLink({ schema })
-const cache = new InMemoryCache()
-const client = new ApolloClient({
-  cache: cache,
-  link: link,
-})
-```
+The `client` is an instance of an `ApolloClient` from the `@apollo/client` npm library.&#x20;
 
 Everything is configured now, and you're ready to make your first requests!&#x20;
 
-To continue with this, see Step 4 and beyond in this @apollo/client getting started tutorial: [https://www.apollographql.com/docs/react/get-started](https://www.apollographql.com/docs/react/get-started)
-
-
-
-</details>
+To continue with this, see Step 4 and beyond in this @apollo/client getting started tutorial: [https://www.apollographql.com/docs/react/get-started](https://www.apollographql.com/docs/react/get-started)&#x20;

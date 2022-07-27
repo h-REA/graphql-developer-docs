@@ -3,6 +3,8 @@
 * [Welcome!](README.md)
 * [Quick Start - API Explorer](quick-start.md)
 * [Quick Start - Integrate](quick-start-integrate.md)
+* [Configuring Enabled Modules](configuring-enabled-modules.md)
+* [Using "myAgent"](using-myagent.md)
 
 ## Reference
 
