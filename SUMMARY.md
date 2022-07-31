@@ -3,6 +3,9 @@
 * [Welcome!](README.md)
 * [Quick Start - API Explorer](quick-start.md)
 * [Quick Start - Integrate](quick-start-integrate.md)
+* [Dev Environment](dev-environment.md)
+* [Ship To Production](ship-to-production.md)
+* [Running hREA Backend](running-hrea-backend.md)
 * [Configuring Enabled Modules](configuring-enabled-modules.md)
 * [Using "myAgent"](using-myagent.md)
 
