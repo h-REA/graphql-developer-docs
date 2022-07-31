@@ -60,7 +60,7 @@ hc sandbox call install-app-bundle ./hrea_suite.happ
 Start your holochain "sandbox" runtime, attaching a port for websocket networking, on the networking port 4000. You can safely stop and restart this particular process, and don't have to rerun the other steps.
 
 ```
-hc sandbox run --all --port 4000
+hc sandbox run --all --ports 4000
 ```
 
 
