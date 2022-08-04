@@ -73,4 +73,4 @@ The `client` is an instance of an `ApolloClient` from the `@apollo/client` npm l
 
 Everything is configured now, and you're ready to make your first requests!&#x20;
 
-To continue with this, see Step 4 and beyond in this @apollo/client getting started tutorial: [https://www.apollographql.com/docs/react/get-started](https://www.apollographql.com/docs/react/get-started/#step-4-connect-your-client-to-react)&#x20;
+To continue with this, see Step 4 and beyond in this @apollo/client getting started tutorial: [https://www.apollographql.com/docs/react/get-started](https://www.apollographql.com/docs/react/get-started)&#x20;
