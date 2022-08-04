@@ -18,7 +18,7 @@ Run the following commands:
 
 ### Pointing the client to the holochain service
 
-Assuming that you installed and are running an hREA "hApp" within a holochain service, you need to provide two details to your client in order to know how to connect to, and make requests, of the holochain service. An "app id" and a "websocket url". Here's the quickest way to do that:
+Assuming that [you installed and are running an hREA "hApp" within a holochain service](running-hrea-backend.md), you need to provide two details to your client in order to know how to connect to, and make requests, of the holochain service. An "app id" and a "websocket url". Here's the quickest way to do that:
 
 To your package.json startup command, whatever it is, add this as a prefix to the rest of the command:
 

@@ -4,7 +4,7 @@ Each of the items listed below is what is known as a Valueflows Module. They can
 
 ## Action
 
-Everything related to actions:
+TODO
 
 {% content-ref url="action.md" %}
 [action.md](action.md)
@@ -12,7 +12,7 @@ Everything related to actions:
 
 ## Agent
 
-Everything related to users:
+TODO
 
 {% content-ref url="agent.md" %}
 [agent.md](agent.md)
@@ -20,7 +20,7 @@ Everything related to users:
 
 ## Agreement
 
-Everything related to measurements:
+TODO
 
 {% content-ref url="agreement.md" %}
 [agreement.md](agreement.md)
@@ -28,7 +28,7 @@ Everything related to measurements:
 
 ## Commitment
 
-Everything related to observations:
+TODO
 
 {% content-ref url="commitment.md" %}
 [commitment.md](commitment.md)
@@ -36,7 +36,7 @@ Everything related to observations:
 
 ## Fulfillment
 
-Everything related to measurements:
+TODO
 
 {% content-ref url="fulfillment.md" %}
 [fulfillment.md](fulfillment.md)
@@ -44,7 +44,7 @@ Everything related to measurements:
 
 ## Intent
 
-Everything related to measurements:
+TODO
 
 {% content-ref url="intent.md" %}
 [intent.md](intent.md)
@@ -52,7 +52,7 @@ Everything related to measurements:
 
 ## Measurement
 
-Everything related to measurements:
+TODO
 
 {% content-ref url="measurement.md" %}
 [measurement.md](measurement.md)
@@ -60,7 +60,7 @@ Everything related to measurements:
 
 ## Observation
 
-Everything related to measurements:
+TODO
 
 {% content-ref url="observation.md" %}
 [observation.md](observation.md)
@@ -68,7 +68,7 @@ Everything related to measurements:
 
 ## Plan
 
-Everything related to measurements:
+TODO
 
 {% content-ref url="plan.md" %}
 [plan.md](plan.md)
@@ -76,7 +76,7 @@ Everything related to measurements:
 
 ## Process
 
-Everything related to measurements:
+TODO
 
 {% content-ref url="process.md" %}
 [process.md](process.md)
@@ -84,7 +84,7 @@ Everything related to measurements:
 
 ## Process Specification
 
-Everything related to measurements:
+TODO
 
 {% content-ref url="process-specification.md" %}
 [process-specification.md](process-specification.md)
@@ -92,7 +92,7 @@ Everything related to measurements:
 
 ## Proposal
 
-Everything related to measurements:
+TODO
 
 {% content-ref url="proposal.md" %}
 [proposal.md](proposal.md)
@@ -100,7 +100,7 @@ Everything related to measurements:
 
 ## Resource Specification
 
-Everything related to measurements:
+TODO
 
 {% content-ref url="resource-specification.md" %}
 [resource-specification.md](resource-specification.md)
@@ -108,7 +108,7 @@ Everything related to measurements:
 
 ## Satisfaction
 
-Everything related to measurements:
+TODO
 
 {% content-ref url="satisfaction.md" %}
 [satisfaction.md](satisfaction.md)
