@@ -27,7 +27,7 @@ Great, you now are running the Launcher, re-open it anytime you want to continue
 
 ## Install hREA-graphql-explorer
 
-[Go here](https://github.com/h-REA/hREA/releases/tag/0.0.1-alpha.9) to download the `hrea.webhapp` file from under the `Assets` heading.
+[Go here](https://github.com/h-REA/hREA/releases/tag/happ-0.0.1-alpha.6) to download the `hrea.webhapp` file from under the `Assets` heading.
 
 Within the Holochain Launcher, click `Install New App`.
 

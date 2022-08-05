@@ -11,7 +11,7 @@ Before trying to develop a user interface or service on top of hREA, you need to
 
 
 
-Download the `hrea_suite.happ` file from [this hREA release](https://github.com/h-REA/hREA/releases/tag/0.0.1-alpha.9).
+Download the `hrea_suite.happ` file from [this hREA release](https://github.com/h-REA/hREA/releases/tag/happ-0.0.1-alpha.6).
 
 
 
