@@ -14,7 +14,7 @@ Run the following commands:
 
 `npm install --save @vf-ui/graphql-client-holochain`
 
-`npm install --save graphql@16.2.0`
+`npm install --save graphql@15.8`
 
 ### Pointing the client to the holochain service
 
