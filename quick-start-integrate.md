@@ -65,7 +65,7 @@ import graphqlClientHolochain from '@vf-ui/graphql-client-holochain'
 Elsewhere in your code, somewhere near the entry point and in a high level or global scope, trigger the websocket to be connected, and the Graphql Schema to be set up.
 
 ```javascript
-    const connectionOpts = {}
+    const connectionOpts = { conductorUri: '' }
     const client = await graphqlClientHolochain(connectionOpts)
 ```
 
