@@ -65,8 +65,7 @@ import graphqlClientHolochain from '@vf-ui/graphql-client-holochain'
 Elsewhere in your code, somewhere near the entry point and in a high level or global scope, trigger the websocket to be connected, and the Graphql Schema to be set up.
 
 ```javascript
-    const connectionOpts = { conductorUri: 'ws://localhost:4000' }
-    const client = await graphqlClientHolochain(connectionOpts)
+    const client = await graphqlClientHolochain()
 ```
 
 The `client` is an instance of an `ApolloClient` from the `@apollo/client` npm library.&#x20;
