@@ -94,7 +94,7 @@ mutation AssociateMyAgent {
 ```
 
 {% hint style="info" %}
-Note: since Holochain uses private key / public key cryptography and all data is signed on stored on the local machine, there is always considered to be an authenticated user, without the user having to provide a username/password combination or API token. When calling `associateMyAgent` we are instructing the system to record an associated between the local users Holochain Public Key, and the profile identified by its 'id'.&#x20;
+To understand these functions in more depth, check out the section on [Usign "myAgent"](using-myagent.md).&#x20;
 {% endhint %}
 
 ## Continue with other queries and exploration
@@ -106,19 +106,13 @@ You will be able to access `myAgent` which will be a very useful query for devel
 Here are a few other useful tips.
 
 {% hint style="info" %}
+Check out the [GraphQL API Reference](reference/graphql-api-reference/) welcome page in order to view a couple of important details about types of values expected by the API.
+{% endhint %}
+
+{% hint style="info" %}
 Hover with your mouse over a label in order to see any documentation that may be available about that query.&#x20;
 
 ![](<.gitbook/assets/Screen Shot 2022-07-04 at 8.27.12 AM.png>)
-{% endhint %}
-
-{% hint style="info" %}
-All time values need to be in ISO format, such as&#x20;
-
-`hasPointInTime: "2022-06-09T18:51:57.105Z"`
-{% endhint %}
-
-{% hint style="info" %}
-There are a number of queries that appear in the list, but are not yet implemented. Avoid those ones by checking the completion status [here](https://github.com/h-REA/hREA/blob/sprout/docs/completions.md#graphql-implementation).
 {% endhint %}
 
 {% hint style="info" %}
