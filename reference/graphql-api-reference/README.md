@@ -9,7 +9,7 @@ All time values need to be in ISO format, such as&#x20;
 {% endhint %}
 
 {% hint style="info" %}
-There are a number of queries and mutations that appear in the specification, but are not yet implemented. Avoid those ones by checking that their "status" is "Implemented" in the [GraphQL API Reference](./) section. Those methods will also throw a 'not yet implemented' error if they are called.
+There are a number of queries and mutations that appear in the specification, but are not yet implemented. Avoid those ones by checking that their "status" is "Implemented" in the relevant module section that mentions it. You can put the method in the search box in these docs to find it. Those methods will also throw a 'not yet implemented' error if they are called.
 {% endhint %}
 
 ## Modules
