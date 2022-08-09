@@ -2,7 +2,7 @@
 
 ## Welcome to hREA Developer Docs
 
-Welcome to hREA! Here you'll find all the documentation you need to get up and running with the hREA APIs. While this documentation discusses a set of Graphql APIs, which could in general have multiple language implementations, all of this documentation is at this time focused on a library written for browser and nodejs based javascript projects.
+Welcome to hREA! Here you'll find all the documentation you need to get up and running with the hREA APIs. While this documentation discusses a set of GraphQL APIs, which could in general have multiple language implementations, all of this documentation is at this time focused on a library written for browser and nodejs based javascript projects.
 
 {% hint style="info" %}
 If you're looking for more general information about hREA, check out the main website [https://hrea.io](https://hrea.io)
