@@ -106,6 +106,10 @@ You will be able to access `myAgent` which will be a very useful query for devel
 Here are a few other useful tips.
 
 {% hint style="info" %}
+Check out [Thinking & Expressing ValueFlows](thinking-and-expressing-valueflows.md) to start learning the vocabulary and creating Economic Events.
+{% endhint %}
+
+{% hint style="info" %}
 Check out the [GraphQL API Reference](reference/graphql-api-reference/) welcome page in order to view a couple of important details about types of values expected by the API.
 {% endhint %}
 
