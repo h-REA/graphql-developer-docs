@@ -7,6 +7,7 @@
 * [Ship To Production](ship-to-production.md)
 * [Configuring Enabled Modules](configuring-enabled-modules.md)
 * [Using "myAgent"](using-myagent.md)
+* [Thinking & Expressing ValueFlows](thinking-and-expressing-valueflows.md)
 
 ## Reference
 
