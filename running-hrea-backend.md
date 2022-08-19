@@ -11,7 +11,7 @@ Before trying to develop a user interface or service on top of hREA, you need to
 
 
 
-Download the `hrea_suite.happ` file from [this hREA release](https://github.com/h-REA/hREA/releases/tag/happ-0.0.1-alpha.6).
+Download the `hrea_suite.happ` file from [this hREA release](https://github.com/h-REA/hREA/releases/tag/happ-0.0.1-alpha.7).
 
 
 
@@ -29,18 +29,16 @@ Add these contents to that file:
 
 ```
 let
-  holonixRev = "c7a0b2c75480d429d570c94909cec3210280ad4c";
+  holonixRev = "3fa45915b9a323d16d899e9e82d27b04314523e6";
 
   holonixPath = builtins.fetchTarball "https://github.com/holochain/holonix/archive/${holonixRev}.tar.gz";
   holonix = import (holonixPath) {
-    holochainVersionId = "v0_0_143";
+    holochainVersionId = "v0_0_152";
   };
   nixpkgs = holonix.pkgs;
 in nixpkgs.mkShell {
   inputsFrom = [ holonix.main ];
   packages = with nixpkgs; [
-    # :TODO: binaryen, wasm-opt?
-    # Additional packages go here
     nodejs-16_x
     nodePackages.pnpm
   ];
@@ -54,7 +52,7 @@ Then, just enter the nix-shell by executing the following command:
 Once you are inside that nix-shell, you can verify that you have `hc` on your path by typing `hc --version` and you should see the following printed to your console:
 
 ```
-holochain_cli 0.0.41
+holochain_cli 0.0.50
 ```
 
 You are ready to proceed.
@@ -74,7 +72,7 @@ Install the following to your system, via Rusts package manager "cargo".
 The following installs a holochain developer tools binary to your system, accessible as the binary `hc` on your system.
 
 ```
-cargo install holochain_cli --version 0.0.41
+cargo install holochain_cli --version 0.0.50
 ```
 
 
@@ -82,7 +80,7 @@ cargo install holochain_cli --version 0.0.41
 The following installs the core holochain runtime to your system, accessible as the binary `holochain` on your system. It can be used directly, or implicitly via the `hc sandbox` calls that we make next.
 
 ```
-cargo install holochain --version 0.0.143
+cargo install holochain --version 0.0.152
 ```
 
 
@@ -90,7 +88,7 @@ cargo install holochain --version 0.0.143
 The following is the secure private key enclave that `holochain` uses for cryptography. It is available as a binary on your path `lair-keystore`, but `holochain` manages these subprocesses automatically on your behalf.
 
 ```bash
-cargo install lair_keystore --version 0.0.10
+cargo install lair_keystore --version 0.0.11
 ```
 
 
