@@ -19,7 +19,7 @@ The following tutorial is meant for desktop operating systems, not mobile.
 
 The Holochain "Launcher" is available for download freely on Github.
 
-[Go here](https://github.com/holochain/launcher/releases/tag/v0.4.9) to access the instructions, and the download, for your operating system. Make sure to note the special instructions for your operating system, as the software is still labeled as "Pre-release" and is not yet optimized for user experience.&#x20;
+[Go here](https://github.com/holochain/launcher/releases/tag/v0.4.11) to access the instructions, and the download, for your operating system. Make sure to note the special instructions for your operating system, as the software is still labeled as "Pre-release" and is not yet optimized for user experience.&#x20;
 
 When you start the Holochain Launcher application it will ask that you set a password, which is used to encrypt your data for security. Make sure you record that password somewhere.
 
@@ -27,7 +27,7 @@ Great, you now are running the Launcher, re-open it anytime you want to continue
 
 ## Install hREA-graphql-explorer
 
-[Go here](https://github.com/h-REA/hREA/releases/tag/happ-0.0.1-alpha.6) to download the `hrea.webhapp` file from under the `Assets` heading.
+[Go here](https://github.com/h-REA/hREA/releases/tag/happ-0.0.1-alpha.7) to download the `hrea.webhapp` file from under the `Assets` heading.
 
 Within the Holochain Launcher, click `Install New App`.
 
@@ -35,7 +35,7 @@ Click `Select App From Filesystem`.
 
 Find the `hrea.webhapp` file on your filesystem, and select it.
 
-In the next popup that appears, `Install App: hrea_suite`, you only need to modify one thing. In the field labeled `Install To Holochain Version`, select `0.0.143` from the list. Next, click `Install App`. Wait while it installs. Once it's done, it should take you back to the main page, and you should see 'hrea\_suite' and it should say 'Running', which is its status. Click `Open` to start using the Graphql Explorer application!
+In the next popup that appears, `Install App: hrea_suite`, you only need to modify one thing. In the field labeled **`Install To Holochain Version`**, select **`0.0.152`** from the list. Next, click `Install App`. Wait while it installs. Once it's done, it should take you back to the main page, and you should see 'hrea\_suite' and it should say 'Running', which is its status. Click `Open` to start using the Graphql Explorer application!
 
 ![](<.gitbook/assets/Screen Shot 2022-07-04 at 7.41.58 AM.png>)
 
