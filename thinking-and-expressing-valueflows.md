@@ -47,33 +47,6 @@ Below is a more abstract version, which connects many Events, Resources, and Pro
 
 If you are wondering where the "Agents" are in this situation, they are most likely the ones "doing the work", and would be referenced in particular by **Economic Events**.
 
-### Starting To Experiment
-
-As a primary focus, we have two main panels. On the left, we have our graphql syntax. If we press the '>' play button up top, it will execute our query, by translating it into the right requests to holochain, and whatever result it gets, it will display in the right hand panel. We have to ask ourselves, what do we want to know, or to change?&#x20;
-
-![](https://i.imgur.com/qOHdb8n.png)
-
-By default it is filled in with a number of queries, but if we have gone through steps 1 and two of that (where we create a profile and associate it) we can clear all that text and change it to simply the following:
-
-```graphql
-{
-  myAgent {
-    id
-    name
-  }
-}
-```
-
-Running it we get something like this:
-
-![](https://i.imgur.com/NbkK737.png)
-
-We just asked the API the question: "Who am I?"
-
-We find out we are the agent identified by this very long string value : `uhCAkMrhQvJznARbU6HGnDrdMk-eMbEDE7B8GnBDA66wCv0R4UX6f:uhC0k646zXkQKNvC0vhEkQxW-iGgoILG4-QtrdUyDNdzoCbRkOMXO`
-
-The system represents an ID as one whole string value containing two parts, with that colon separator in the middle. This is important. Throughout all that comes next, we need to reference agent IDs, like this one.
-
 ### Expressing in ValueFlows
 
 Now we want to try to express an **Economic Event** of some kind.
@@ -148,6 +121,31 @@ We see that the required fields are already added in as empty values.
 ![](https://i.imgur.com/D3EZE9W.png)
 
 Because we're going to need valid agent `ID`s for `provider` and `receiver` we can plug in our own agent ID to both. In the future we may want to have another agent's `ID` to add as one or the other, to represent a transfer.
+
+Use the following query in order to retrieve your own agent ID.&#x20;
+
+{% hint style="warning" %}
+This will ONLY work if you have gone through the first two steps of the [Quick Start - API Explorer](quick-start.md) tutorial, or otherwise called `associateMyAgent`
+{% endhint %}
+
+```graphql
+{
+  myAgent {
+    id
+    name
+  }
+}
+```
+
+Running it we get something like this:
+
+![](https://i.imgur.com/NbkK737.png)
+
+We just asked the API the question: "Who am I?"
+
+We find out we are the agent identified by this very long string value : `uhCAkMrhQvJznARbU6HGnDrdMk-eMbEDE7B8GnBDA66wCv0R4UX6f:uhC0k646zXkQKNvC0vhEkQxW-iGgoILG4-QtrdUyDNdzoCbRkOMXO`
+
+The system represents an ID as one whole string value containing two parts, with that colon separator in the middle. This is important. Throughout all that comes next, we need to reference agent IDs, like this one.
 
 ```graphql
 mutation FirstEconomicEvent {
