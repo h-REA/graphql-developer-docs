@@ -19,7 +19,7 @@ The following tutorial is meant for desktop operating systems, not mobile.
 
 The Holochain "Launcher" is available for download freely on Github.
 
-[Go here](https://github.com/holochain/launcher/releases/tag/v0.4.11) to access the instructions, and the download, for your operating system. Make sure to note the special instructions for your operating system, as the software is still labeled as "Pre-release" and is not yet optimized for user experience.&#x20;
+[Go here](https://github.com/holochain/launcher/releases/tag/v0.5.1) to access the instructions, and the download, for your operating system. Make sure to note the special instructions for your operating system, as the software is still labeled as "Pre-release" and is not yet optimized for user experience.&#x20;
 
 When you start the Holochain Launcher application it will ask that you set a password, which is used to encrypt your data for security. Make sure you record that password somewhere.
 
