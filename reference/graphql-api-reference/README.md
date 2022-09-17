@@ -44,6 +44,10 @@ Each of the items listed below is what is known as a Valueflows Module. They can
 [measurement.md](measurement.md)
 {% endcontent-ref %}
 
+{% hint style="info" %}
+Note that **Observation** module below includes both the key **Economic Resource** and **Economic Event** classes, unlike many of the other modules which contain one primary class definition
+{% endhint %}
+
 {% content-ref url="observation.md" %}
 [observation.md](observation.md)
 {% endcontent-ref %}
