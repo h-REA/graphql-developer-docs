@@ -29,11 +29,11 @@ Add these contents to that file:
 
 ```
 let
-  holonixRev = "3fa45915b9a323d16d899e9e82d27b04314523e6";
+  holonixRev = "38f74c722048f787d9faadb479978e73bb5091a1";
 
   holonixPath = builtins.fetchTarball "https://github.com/holochain/holonix/archive/${holonixRev}.tar.gz";
   holonix = import (holonixPath) {
-    holochainVersionId = "v0_0_152";
+    holochainVersionId = "v0_0_162";
   };
   nixpkgs = holonix.pkgs;
 in nixpkgs.mkShell {
@@ -52,7 +52,7 @@ Then, just enter the nix-shell by executing the following command:
 Once you are inside that nix-shell, you can verify that you have `hc` on your path by typing `hc --version` and you should see the following printed to your console:
 
 ```
-holochain_cli 0.0.50
+holochain_cli 0.0.57
 ```
 
 You are ready to proceed.
@@ -72,7 +72,7 @@ Install the following to your system, via Rusts package manager "cargo".
 The following installs a holochain developer tools binary to your system, accessible as the binary `hc` on your system.
 
 ```
-cargo install holochain_cli --version 0.0.50
+cargo install holochain_cli --version 0.0.57
 ```
 
 
@@ -80,7 +80,7 @@ cargo install holochain_cli --version 0.0.50
 The following installs the core holochain runtime to your system, accessible as the binary `holochain` on your system. It can be used directly, or implicitly via the `hc sandbox` calls that we make next.
 
 ```
-cargo install holochain --version 0.0.152
+cargo install holochain --version 0.0.162
 ```
 
 
@@ -88,7 +88,7 @@ cargo install holochain --version 0.0.152
 The following is the secure private key enclave that `holochain` uses for cryptography. It is available as a binary on your path `lair-keystore`, but `holochain` manages these subprocesses automatically on your behalf.
 
 ```bash
-cargo install lair_keystore --version 0.0.11
+cargo install lair_keystore --version 0.2.0
 ```
 
 
