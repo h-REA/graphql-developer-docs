@@ -20,7 +20,7 @@ There are a set of special GraphQL API endpoints provided for this common use ca
 
 ## R-E-Agent
 
-in the Resource-Event-Agent model, their is a primitive known as "Agent". In `hREA` there are multiple sub-types of "Agent", but they are all "Agents". Two such examples are "Person" and "Organization". All Resources and Events likely contain references to an "Agent".&#x20;
+In the Resource-Event-Agent model, there is a primitive known as "Agent". In `hREA` there are multiple sub-types of "Agent", but they are all "Agents". Two such examples are "Person" and "Organization". All Resources and Events likely contain references to an "Agent".&#x20;
 
 "Agent"s are explicitly recorded in the system, and are different than the notion of devices which hREA running and have joined the network of peers. Any given device **may OR may not** be associated with one such "Agent" record.&#x20;
 
