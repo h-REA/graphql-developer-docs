@@ -11,7 +11,7 @@ If you have gone through the [Quick Start - API Explorer](quick-start.md) setup,
 
 ![a web browser with 3 panels lined up horizontally, the left has code in it, the middle is empty, and right has some developer documentation](https://i.imgur.com/14flkez.png)
 
-It is a user interface, but isn't an "end user application". It is a "graphiql" explorer, built for mostly for engaging as a developer with a ["graphql"](https://graphql.org/) application programming interface (API). However, anyone can use it, and you're encouraged you to stick with this, and see what you can do. [https://github.com/graphql/graphiql](https://github.com/graphql/graphiql). The "i" stands for "interactive".
+It is a user interface, but isn't an "end user application". It is a "[graphiql](https://github.com/graphql/graphiql)" explorer (the "i" stands for "interactive"), built for mostly for engaging as a developer with a ["graphql"](https://graphql.org/) application programming interface (API). However, anyone can use it, and you're encouraged to stick with this, and see what you can do.
 
 This interface is super handy for testing and getting to know the ValueFlows data structures and functions.
 
@@ -65,7 +65,7 @@ The docs on the right hand side can be helpful if we explore them
 
 ![](https://i.imgur.com/HJGxPhF.png)
 
-In Graphql, a **Query** is anything that ONLY reads data, and does not change (mutate) that data in any way. Oppositely, a **Mutation** is meant to be used to alter a database or persisted data of some kind. It could potentially be used to create new things, update existing things, or delete them (in the case of holochain, just "tombstone" them, they aren't gone gone).
+In Graphql, a **Query** is anything that ONLY reads data, and does not change (mutate) that data in any way. Oppositely, a **Mutation** is meant to be used to alter a database or persisted data of some kind. It could potentially be used to create new things, update existing things, or delete them (in the case of holochain, just "tombstone" them; they aren't gone gone).
 
 We are interested in mutations first of all, because we want to make stuff happen!
 
