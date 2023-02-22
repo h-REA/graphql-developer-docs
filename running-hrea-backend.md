@@ -11,7 +11,7 @@ Before trying to develop a user interface or service on top of hREA, you need to
 
 
 
-Download the `hrea_suite.happ` file from [this hREA release](https://github.com/h-REA/hREA/releases/tag/happ-0.1.0-beta).
+Download the `hrea_suite.happ` file from [this hREA release](https://github.com/h-REA/hREA/releases/tag/happ-0.1.2-beta).
 
 
 
@@ -19,43 +19,9 @@ You need to install some packages to your command line, which you can do manuall
 
 <details>
 
-<summary>With Nix-shell</summary>
+<summary>With Nix-shell (not ready)</summary>
 
-If you have nix-shell installed already, or install it now, you can follow these instructions in order to utilize the command line utilities that you need to proceed, such as `holochain` `hc` and `lair-keystore`.&#x20;
-
-In your project folder, create a file called `default.nix`.&#x20;
-
-Add these contents to that file:
-
-```
-let
-  holonixRev = "38f74c722048f787d9faadb479978e73bb5091a1";
-
-  holonixPath = builtins.fetchTarball "https://github.com/holochain/holonix/archive/${holonixRev}.tar.gz";
-  holonix = import (holonixPath) {
-    holochainVersionId = "v0_0_162";
-  };
-  nixpkgs = holonix.pkgs;
-in nixpkgs.mkShell {
-  inputsFrom = [ holonix.main ];
-  packages = with nixpkgs; [
-    nodejs-16_x
-    nodePackages.pnpm
-  ];
-}
-```
-
-Then, just enter the nix-shell by executing the following command:
-
-`nix-shell .`
-
-Once you are inside that nix-shell, you can verify that you have `hc` on your path by typing `hc --version` and you should see the following printed to your console:
-
-```
-holochain_cli 0.0.57
-```
-
-You are ready to proceed.
+Needs updating... coming soon.
 
 </details>
 
@@ -72,7 +38,7 @@ Install the following to your system, via Rusts package manager "cargo".
 The following installs a holochain developer tools binary to your system, accessible as the binary `hc` on your system.
 
 ```
-cargo install holochain_cli --version 0.0.57
+cargo install holochain_cli --version 0.1.3 --locked
 ```
 
 
@@ -80,7 +46,7 @@ cargo install holochain_cli --version 0.0.57
 The following installs the core holochain runtime to your system, accessible as the binary `holochain` on your system. It can be used directly, or implicitly via the `hc sandbox` calls that we make next.
 
 ```
-cargo install holochain --version 0.0.162
+cargo install holochain --version 0.1.3 --locked
 ```
 
 
@@ -88,7 +54,7 @@ cargo install holochain --version 0.0.162
 The following is the secure private key enclave that `holochain` uses for cryptography. It is available as a binary on your path `lair-keystore`, but `holochain` manages these subprocesses automatically on your behalf.
 
 ```bash
-cargo install lair_keystore --version 0.2.0
+cargo install lair_keystore --version 0.2.3 --locked
 ```
 
 
@@ -100,7 +66,7 @@ cargo install lair_keystore --version 0.2.0
 Set up a holochain development "sandbox". A temporary directory on your file system that will store all your keys and data for the hREA happ that you are about to install and run. `network quic` is there to instruct `holochain` to use a specific kind of networking, known as `quic`.
 
 ```
-hc sandbox create -n 1 -d hrea_tester network quic
+echo \"pass\" | hc sandbox --piped create -n 1 -d hrea_tester network quic
 ```
 
 
@@ -108,15 +74,15 @@ hc sandbox create -n 1 -d hrea_tester network quic
 Install the hREA hApp to your holochain sandbox. Make sure you use the right path to wherever on your filesystem you have `hrea_suite.happ` file that you downloaded.
 
 ```
-hc sandbox call install-app-bundle ./hrea_suite.happ
+echo \"pass\" | hc sandbox --piped call install-app-bundle ./hrea_suite.happ
 ```
 
 
 
-Start your holochain "sandbox" runtime, attaching a port for websocket networking, on the networking port 4000.&#x20;
+Start your holochain "sandbox" runtime, attaching ports for admin level websocket server on port 4001 and for an app level websocket server on port 4000.&#x20;
 
 ```
-hc sandbox run --all --ports 4000
+echo \"pass\" | hc sandbox -piped -f=4001 run --all --ports 4000
 ```
 
 {% hint style="info" %}
