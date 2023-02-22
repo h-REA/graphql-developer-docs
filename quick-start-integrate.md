@@ -23,14 +23,14 @@ Assuming that [you installed and are running an hREA "hApp" within a holochain s
 To your package.json startup command, whatever it is, add this as a prefix to the rest of the command:
 
 ```
-REACT_APP_HC_APP_ID='hrea_suite' REACT_APP_HC_CONN_URL='ws://localhost:4000'
+REACT_APP_HC_APP_ID='hrea_suite' REACT_APP_HC_CONN_URL='ws://localhost:4000' REACT_APP_HC_ADMIN_CONN_URL='ws://localhost:4001'
 ```
 
 So that it looks something like this:
 
 ```json
   "scripts": {
-    "start": "REACT_APP_HC_APP_ID='hrea_suite' REACT_APP_HC_CONN_URL='ws://localhost:4000' node index.js"
+    "start": "REACT_APP_HC_APP_ID='hrea_suite' REACT_APP_HC_CONN_URL='ws://localhost:4000' REACT_APP_HC_ADMIN_CONN_URL='ws://localhost:4001' node index.js"
   },
 ```
 
@@ -47,6 +47,8 @@ When installing a 'hApp' to holochain, each hApp must be given a unique identifi
 When running a holochain service, it can be instructed to setup a websocket server, over which requests can be made. The URL of this websocket server can be constructed similar to the following, based on whatever port the 'App Websocket' service is declared by holochain to be running, such as `4000`.&#x20;
 
 `REACT_APP_HC_CONN_URL='ws://localhost:4000'`
+
+When running a holochain service, it will always need to open an admin level websocket server, over which secure administration requests can be sent to holochain to control it. The URL of this websocket server can be constructed similar to the following, based on whatever port the 'Admin Websocket' service is declared by holochain to be running, such as `4001`.&#x20;
 
 {% hint style="info" %}
 If you are looking to release to the [**Holochain Launcher**](https://github.com/holochain/launcher), during your build process, if you have one, make sure to set both of these values to '' empty, as the Launcher will assist your client to negotiate these values automatically through some ['magical introspection'](https://github.com/holochain/holochain-client-js/blob/cc9563ca5db448cd03f7e298e4fd71fc1625cbcd/src/environments/launcher.ts).&#x20;
