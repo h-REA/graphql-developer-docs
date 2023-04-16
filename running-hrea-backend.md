@@ -82,7 +82,7 @@ echo \"pass\" | hc sandbox --piped call install-app-bundle ./hrea_suite.happ
 Start your holochain "sandbox" runtime, attaching ports for admin level websocket server on port 4001 and for an app level websocket server on port 4000.&#x20;
 
 ```
-echo \"pass\" | hc sandbox -piped -f=4001 run --all --ports 4000
+echo \"pass\" | hc sandbox --piped -f=4001 run --all --ports 4000
 ```
 
 {% hint style="info" %}
