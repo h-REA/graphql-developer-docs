@@ -74,7 +74,7 @@ echo \"pass\" | hc sandbox --piped create -n 1 -d hrea_tester network quic
 Install the hREA hApp to your holochain sandbox. Make sure you use the right path to wherever on your filesystem you have `hrea_suite.happ` file that you downloaded.
 
 ```
-echo \"pass\" | hc sandbox --piped call install-app-bundle ./hrea_suite.happ
+echo \"pass\" | hc sandbox --piped call install-app ./hrea_suite.happ
 ```
 
 
