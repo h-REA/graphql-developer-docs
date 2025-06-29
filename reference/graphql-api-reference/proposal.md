@@ -1,68 +1,86 @@
 # Proposal
 
-## Classes
-
-### `Proposal`
-
 Published requests or offers, sometimes with what is expected in return.
 
-### `ProposedIntent`
+## Fields
 
-Represents many-to-many relationships between Proposals and Intents, supporting including intents in multiple proposals, as well as a proposal including multiple intents.
-
-### `ProposedTo`
-
-An agent to which the proposal is to be published.  A proposal can be published to many agents.
+| Field | Type | Description |
+| ----- | ---- | ----------- |
+| `id` | `ID!` | A unique identifier for the proposal. |
+| `revisionId` | `ID!` | The identifier of the last revision of this proposal. |
+| `name` | `String` | An informal or formal textual identifier for a proposal. |
+| `hasBeginning` | `DateTime` | The beginning time of proposal publication. |
+| `hasEnd` | `DateTime` | The end time of proposal publication. |
+| `unitBased` | `Boolean` | Indicates if this proposal contains unit-based quantities. |
+| `created` | `DateTime` | The date and time the proposal was created. |
+| `note` | `String` | A textual description or comment. |
+| `publishes` | `[Intent!]!` | The intents which are part of this proposal. |
+| `reciprocal` | `[Intent!]!` | The reciprocal intents which are part of this proposal. |
+| `proposedTo` | `[Agent!]!` | Agents to whom the proposal is proposed. |
+| `inScopeOf` | `[AccountingScope!]` | The accounting scope this proposal falls within. |
+| `revision` | `Proposal` | Retrieves a specific revision of a proposal. |
+| `meta` | `RecordMeta!` | Metadata about the record. |
 
 ## Queries
 
-### `proposal`
+### `proposal(id: ID!)`
+Retrieves a single `Proposal` by its `id`.
 
-> Status: Implemented
+### `proposals(first: Int, after: String, last: Int, before: String)`
+Retrieves a paginated list of all `Proposal`s.
 
-### `proposals`
-
-> Status: Implemented
-
-### `requests`
-List all proposals that are being listed as requests.
-> Status: Unimplemented
-
-### `offers`
+### `offers(first: Int, after: String, last: Int, before: String)`
 List all proposals that are being listed as offers.
-> Status: Unimplemented
+
+### `requests(first: Int, after: String, last: Int, before: String)`
+List all proposals that are being listed as requests.
 
 ## Mutations
 
-### `createProposal`
+### `createProposal(proposal: ProposalCreateParams!)`
+Creates a new `Proposal`.
 
-> Status: Implemented
+### `updateProposal(proposal: ProposalUpdateParams!)`
+Updates an existing `Proposal`.
 
-### `updateProposal`
+### `deleteProposal(revisionId: ID!)`
+Deletes a `Proposal`.
 
-> Status: Implemented
+---
 
-### `deleteProposal`
+## Related Types
 
-> Status: Implemented
+### Input: `ProposalCreateParams`
+| Field | Type | Description |
+| ----- | ---- | ----------- |
+| `name` | `String` | Name of the proposal. |
+| `hasBeginning`| `DateTime`| Start time of the proposal. |
+| `hasEnd` | `DateTime` | End time of the proposal. |
+| `unitBased` | `Boolean` | Is the proposal unit-based? |
+| `note` | `String` | A textual description. |
+| `created` | `DateTime` | Creation time of the proposal. |
+| `publishes` | `[ID!]!` | IDs of the intents to publish. |
+| `reciprocal` | `[ID!]` | IDs of the reciprocal intents. |
+| `proposedTo` | `[ID!]` | IDs of the agents to propose to. |
+| `inScopeOf` | `[ID!]` | IDs of the accounting scopes. |
 
-### `proposeIntent`
-Include an existing intent as part of a proposal.
-@param publishedIn the (`Proposal`) to include the intent in
-@param publishes the (`Intent`) to include as part of the proposal
-> Status: Implemented
+### Input: `ProposalUpdateParams`
+Requires a `revisionId` and allows updating the same fields as `ProposalCreateParams`.
 
-### `deleteProposedIntent`
+### Response: `ProposalResponse`
+| Field | Type | Description |
+| ----- | ---- | ----------- |
+| `proposal` | `Proposal!` | The proposal record that was created or updated. |
 
-> Status: Implemented
+### Connection: `ProposalConnection`
+| Field | Type | Description |
+| ----- | ---- | ----------- |
+| `edges` | `[ProposalEdge!]!` | A list of proposal edges. |
+| `pageInfo` | `PageInfo!` | Information to aid in pagination. |
 
-### `proposeTo`
-Send a proposal to another agent.
-@param proposed the (`Proposal`) to send to an involved agent
-@param proposedTo the (`Agent`) to include in the proposal
-> Status: Implemented
-
-### `deleteProposedTo`
-
-> Status: Implemented
+### Edge: `ProposalEdge`
+| Field | Type | Description |
+| ----- | ---- | ----------- |
+| `node` | `Proposal!` | The proposal record. |
+| `cursor` | `String!` | A cursor for use in pagination. |
 

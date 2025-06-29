@@ -1,108 +1,177 @@
 # Agent
 
-## Classes
-
-### `Agent`
-
 A person or group or organization with economic agency.
+
+## Interface: `Agent`
+
+| Field | Type | Description |
+| ----- | ---- | ----------- |
+| `id` | `ID!` | A unique identifier for the agent. |
+| `revisionId` | `ID!` | The identifier of the last revision of this agent. |
+| `name` | `String!` | An informal or formal textual identifier for an agent. Does not imply uniqueness. |
+| `image` | `URI` | The uri to an image relevant to the agent, such as a logo, avatar, photo, etc. |
+| `note` | `String` | A textual description or comment. |
+| `relationships` | `AgentRelationshipConnection` | All relationships where this agent is either the subject or object. |
+| `relationshipsAsSubject` | `AgentRelationshipConnection` | Relationships where this agent is the subject. |
+| `relationshipsAsObject` | `AgentRelationshipConnection` | Relationships where this agent is the object. |
+| `roles` | `[AgentRelationshipRole!]` | The relationship roles this agent has. |
+| `commitments` | `CommitmentConnection` | All commitments where this agent is the provider or receiver. |
+| `commitmentsAsProvider` | `CommitmentConnection` | Commitments where this agent is the provider. |
+| `commitmentsAsReceiver` | `CommitmentConnection` | Commitments where this agent is the receiver. |
+| `commitmentsInScope` | `CommitmentConnection` | Commitments that are in the scope of this agent. |
+| `intents` | `IntentConnection` | All intents where this agent is the provider or receiver. |
+| `intentsAsProvider` | `IntentConnection` | Intents where this agent is the provider. |
+| `intentsAsReceiver` | `IntentConnection` | Intents where this agent is the receiver. |
+| `intentsInScope` | `IntentConnection` | Intents that are in the scope of this agent. |
+| `economicEvents` | `EconomicEventConnection` | All economic events where this agent is the provider or receiver. |
+| `economicEventsAsProvider` | `EconomicEventConnection` | Economic events where this agent is the provider. |
+| `economicEventsAsReceiver` | `EconomicEventConnection` | Economic events where this agent is the receiver. |
+| `economicEventsInScope` | `EconomicEventConnection` | Economic events that are in the scope of this agent. |
+| `inventoriedEconomicResources` | `EconomicResourceConnection` | Economic resources inventoried by this agent. |
+| `plans` | `PlanConnection` | Plans created by this agent. |
+| `processes` | `ProcessConnection` | Processes this agent is involved in. |
+| `proposals` | `ProposalConnection` | All proposals involving this agent. |
+| `proposalsInScope` | `ProposalConnection` | Proposals in the scope of this agent. |
+| `proposalsTo` | `ProposalConnection` | Proposals made to this agent. |
+| `revision` | `Agent` | Retrieves a specific revision of an agent. |
+| `meta` | `RecordMeta!` | Metadata about the record. |
+
+## Types implementing `Agent`
+
+### `Person`
+
+Represents a natural person. Inherits all fields from the `Agent` interface.
+
+### `Organization`
+
+Represents a formal or informal group, or legal organization. Inherits all fields from the `Agent` interface and has the following additional fields:
+
+| Field | Type | Description |
+| ----- | ---- | ----------- |
+| `classifiedAs` | `[URI!]` | References concepts in a taxonomy for categorization. |
 
 ## Queries
 
 ### `myAgent`
-Loads details of the currently authenticated REA agent
-> Status: Implemented
+Loads details of the currently authenticated REA agent.
 
-### `agent`
-Find an agent (person or organization) by their ID
-> Status: Implemented
+### `agent(id: ID!)`
+Find an agent (person or organization) by their ID.
 
-### `organization`
-Find an organization (group) agent by its ID
-> Status: Implemented
+### `agents(first: Int, after: String, last: Int, before: String)`
+Loads all agents publicly registered within this collaboration space.
 
-### `person`
-Find a person by their ID
-> Status: Implemented
+### `organization(id: ID!)`
+Find an organization (group) agent by its ID.
 
-### `agents`
-Loads all agents publicly registered within this collaboration space
-> Status: Implemented
+### `organizations(first: Int, after: String, last: Int, before: String)`
+Loads all organizations publicly registered within this collaboration space.
 
-### `organizations`
-Loads all organizations publicly registered within this collaboration space
-> Status: Implemented
+### `person(id: ID!)`
+Find a person by their ID.
 
-### `people`
+### `people(first: Int, after: String, last: Int, before: String)`
 Loads all people who have publicly registered with this collaboration space.
-> Status: Implemented
-
-### `agentRelationship`
-Retrieve details of an agent relationship by its ID
-> Status: Unimplemented
-
-### `agentRelationships`
-Retrieve details of all the relationships between all agents registered in this collaboration space
-> Status: Unimplemented
-
-### `agentRelationshipRole`
-Retrieve details of an agent relationship role by its ID
-> Status: Unimplemented
-
-### `agentRelationshipRoles`
-Retrieve all possible kinds of associations that agents may have with one another in this collaboration space
-> Status: Unimplemented
 
 ## Mutations
 
-### `associateMyAgent`
-Associates the Agent identified by agentId with the currently authenticated user. Can only be used once.
-> Status: Implemented
+### `createPerson(person: AgentCreateParams!)`
+Registers a new (human) person with the collaboration space.
 
-### `createPerson`
-Registers a new (human) person with the collaboration space
-> Status: Implemented
+### `updatePerson(person: AgentUpdateParams!)`
+Updates profile details for a person.
 
-### `updatePerson`
-Update profile details
-> Status: Implemented
+### `deletePerson(revisionId: ID!)`
+Erases the record of a person.
 
-### `deletePerson`
-Erase record of a person and thus remove them from the collaboration space
-> Status: Implemented
+### `createOrganization(organization: OrganizationCreateParams!)`
+Registers a new organization with the collaboration space.
 
-### `createOrganization`
-Registers a new organization (group agent) with the collaboration space
-> Status: Implemented
+### `updateOrganization(organization: OrganizationUpdateParams!)`
+Updates profile details for an organization.
 
-### `updateOrganization`
-Update organization profile details
-> Status: Implemented
+### `deleteOrganization(revisionId: ID!)`
+Erases the record of an organization.
 
-### `deleteOrganization`
-Erase record of an organization and thus remove it from the collaboration space
-> Status: Implemented
+---
 
-### `createAgentRelationship`
+## Related Types
 
-> Status: Unimplemented
+### Input: `AgentCreateParams`
+| Field | Type | Description |
+| ----- | ---- | ----------- |
+| `name` | `String!` | An informal or formal textual identifier for an agent. |
+| `image`| `URI` | A URI to an image for the agent. |
+| `note` | `String` | A textual description or comment. |
 
-### `updateAgentRelationship`
+### Input: `AgentUpdateParams`
+| Field | Type | Description |
+| ----- | ---- | ----------- |
+| `revisionId` | `ID!` | The revision ID of the agent to update. |
+| `name` | `String` | An informal or formal textual identifier for an agent. |
+| `image`| `URI` | A URI to an image for the agent. |
+| `note` | `String` | A textual description or comment. |
 
-> Status: Unimplemented
+### Input: `OrganizationCreateParams`
+| Field | Type | Description |
+| ----- | ---- | ----------- |
+| `name` | `String!` | An informal or formal textual identifier for the organization. |
+| `image`| `URI` | A URI to an image for the organization. |
+| `classifiedAs` | `[URI!]` | References concepts in a taxonomy for categorization. |
+| `note` | `String` | A textual description or comment. |
 
-### `deleteAgentRelationship`
+### Input: `OrganizationUpdateParams`
+| Field | Type | Description |
+| ----- | ---- | ----------- |
+| `revisionId` | `ID!` | The revision ID of the organization to update. |
+| `name` | `String` | An informal or formal textual identifier for the organization. |
+| `image`| `URI` | A URI to an image for the organization. |
+| `classifiedAs` | `[URI!]` | References concepts in a taxonomy for categorization. |
+| `note` | `String` | A textual description or comment. |
 
-> Status: Unimplemented
+### Response: `PersonResponse`
+| Field | Type | Description |
+| ----- | ---- | ----------- |
+| `agent` | `Person!` | The person record that was created or updated. |
 
-### `createAgentRelationshipRole`
+### Response: `OrganizationResponse`
+| Field | Type | Description |
+| ----- | ---- | ----------- |
+| `agent` | `Organization!` | The organization record that was created or updated. |
 
-> Status: Unimplemented
+### Connection: `AgentConnection`
+| Field | Type | Description |
+| ----- | ---- | ----------- |
+| `edges` | `[AgentEdge!]!` | A list of agent edges. |
+| `pageInfo` | `PageInfo!` | Information to aid in pagination. |
 
-### `updateAgentRelationshipRole`
+### Edge: `AgentEdge`
+| Field | Type | Description |
+| ----- | ---- | ----------- |
+| `node` | `Agent!` | The agent record. |
+| `cursor` | `String!` | A cursor for use in pagination. |
 
-> Status: Unimplemented
+### Connection: `PersonConnection`
+| Field | Type | Description |
+| ----- | ---- | ----------- |
+| `edges` | `[PersonEdge!]!` | A list of person edges. |
+| `pageInfo` | `PageInfo!` | Information to aid in pagination. |
 
-### `deleteAgentRelationshipRole`
+### Edge: `PersonEdge`
+| Field | Type | Description |
+| ----- | ---- | ----------- |
+| `node` | `Person!` | The person record. |
+| `cursor` | `String!` | A cursor for use in pagination. |
 
-> Status: Unimplemented
+### Connection: `OrganizationConnection`
+| Field | Type | Description |
+| ----- | ---- | ----------- |
+| `edges` | `[OrganizationEdge!]!` | A list of organization edges. |
+| `pageInfo` | `PageInfo!` | Information to aid in pagination. |
+
+### Edge: `OrganizationEdge`
+| Field | Type | Description |
+| ----- | ---- | ----------- |
+| `node` | `Organization!` | The organization record. |
+| `cursor` | `String!` | A cursor for use in pagination. |
 
