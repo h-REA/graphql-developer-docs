@@ -1,13 +1,16 @@
 # Table of contents
 
 * [Welcome!](README.md)
-* [Quick Start - API Explorer](quick-start.md)
-* [Quick Start - Integrate](quick-start-integrate.md)
-* [Running hREA Backend](running-hrea-backend.md)
-* [Ship To Production](ship-to-production.md)
-* [Configuring Enabled Modules](configuring-enabled-modules.md)
-* [Using "myAgent"](using-myagent.md)
+* [Quick Start](index.md)
+* [Integration Guide](integration-guide.md)
+* [Basic Usage with Lit](basic-usage-lit.md)
+
+## Advanced Topics
+
 * [Thinking & Expressing ValueFlows](thinking-and-expressing-valueflows.md)
+* [Using "myAgent"](using-myagent.md)
+* [Configuring Enabled Modules](configuring-enabled-modules.md)
+* [Ship To Production](ship-to-production.md)
 
 ## Reference
 
