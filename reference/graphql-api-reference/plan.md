@@ -20,6 +20,7 @@ A logical collection of processes that constitute a body of planned work with de
 | `revision` | `Plan` | Retrieves a specific revision of a plan. |
 | `meta` | `RecordMeta!` | Metadata about the record. |
 | `processes` | `[Process!]` | Processes that are part of this plan. |
+| `refinementOf` | `Scenario` | This plan refines a scenario, making it operational. |
 
 ## Queries
 
@@ -48,6 +49,8 @@ Deletes a `Plan`.
 | Field | Type | Description |
 | ----- | ---- | ----------- |
 | `name` | `String!` | An informal or formal textual identifier for the plan. |
+| `inScopeOf` | `[ID!]` | The accounting scope of the plan. |
+| `refinementOf` | `ID` | The scenario this plan refines, making it operational. |
 | `created` | `DateTime` | The time the plan was made. |
 | `due` | `DateTime` | The time the plan is expected to be complete. |
 | `note` | `String` | A textual description or comment. |
@@ -57,6 +60,8 @@ Deletes a `Plan`.
 | ----- | ---- | ----------- |
 | `revisionId` | `ID!` | The revision ID of the plan to update. |
 | `name` | `String` | An informal or formal textual identifier for the plan. |
+| `inScopeOf` | `[ID!]` | The accounting scope of the plan. |
+| `refinementOf` | `ID` | The scenario this plan refines, making it operational. |
 | `created` | `DateTime` | The time the plan was made. |
 | `due` | `DateTime` | The time the plan is expected to be complete. |
 | `note` | `String` | A textual description or comment. |

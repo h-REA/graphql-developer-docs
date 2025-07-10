@@ -62,10 +62,54 @@ Deletes an `Intent`.
 ## Related Types
 
 ### Input: `IntentCreateParams`
-See the full schema for the extensive list of fields for this input type.
+| Field | Type | Description |
+| ----- | ---- | ----------- |
+| `name` | `String` | An informal or formal textual identifier for an intent. |
+| `action` | `ID!` | The ID of the `Action` for the intent. |
+| `resourceClassifiedAs`| `[URI!]`| References to a taxonomy for categorization. |
+| `resourceQuantity`| `IMeasure` | The amount and unit of the economic resource. |
+| `effortQuantity` | `IMeasure` | The amount and unit of the work or use action. |
+| `availableQuantity`| `IMeasure` | The total quantity of the offered resource available. |
+| `minimumQuantity` | `IMeasure` | Minimum quantity of the offered resource available. |
+| `hasBeginning` | `DateTime` | The planned beginning of the intent. |
+| `hasEnd` | `DateTime` | The planned end of the intent. |
+| `hasPointInTime` | `DateTime` | The planned date/time for the intent. |
+| `due` | `DateTime` | The time something is expected to be complete. |
+| `finished` | `Boolean` | Indicates if the intent is complete. |
+| `image` | `URI` | A URI to an image relevant to the intent. |
+| `imageList` | `[URI!]` | URI addresses to images relevant to the intent. |
+| `note` | `String` | A textual description or comment. |
+| `agreedIn` | `URI` | A reference to an agreement governing this intent. |
+| `provider` | `ID` | The ID of the provider `Agent`. |
+| `receiver` | `ID` | The ID of the receiver `Agent`. |
+| `inScopeOf` | `[ID!]` | The accounting scope of the intent. |
+| `resourceInventoriedAs` | `ID` | The ID of the `EconomicResource` involved. |
+| `publishedIn` | `[ID!]` | The ID of the `Proposal` this intent is published in. |
+| `resourceConformsTo`| `ID` | The ID of the `ResourceSpecification`. |
+| `inputOf` | `ID` | The ID of the `Process` this is an input to. |
+| `outputOf` | `ID` | The ID of the `Process` this is an output of. |
 
 ### Input: `IntentUpdateParams`
-See the full schema for the extensive list of fields for this input type. Requires a `revisionId`.
+| Field | Type | Description |
+| ----- | ---- | ----------- |
+| `revisionId` | `ID!` | The revision ID of the intent to update. |
+| `name` | `String` | An informal or formal textual identifier for an intent. |
+| `resourceClassifiedAs`| `[URI!]`| References to a taxonomy for categorization. |
+| `resourceQuantity`| `IMeasure` | The amount and unit of the economic resource. |
+| `effortQuantity` | `IMeasure` | The amount and unit of the work or use action. |
+| `availableQuantity`| `IMeasure` | The total quantity of the offered resource available. |
+| `minimumQuantity` | `IMeasure` | Minimum quantity of the offered resource available. |
+| `hasBeginning` | `DateTime` | The planned beginning of the intent. |
+| `hasEnd` | `DateTime` | The planned end of the intent. |
+| `hasPointInTime` | `DateTime` | The planned date/time for the intent. |
+| `due` | `DateTime` | The time something is expected to be complete. |
+| `finished` | `Boolean` | Indicates if the intent is complete. |
+| `image` | `URI` | A URI to an image relevant to the intent. |
+| `imageList` | `[URI!]` | URI addresses to images relevant to the intent. |
+| `note` | `String` | A textual description or comment. |
+| `agreedIn` | `URI` | A reference to an agreement governing this intent. |
+| `resourceInventoriedAs` | `ID` | The ID of the `EconomicResource` involved. |
+| `resourceConformsTo`| `ID` | The ID of the `ResourceSpecification`. |
 
 ### Response: `IntentResponse`
 | Field | Type | Description |

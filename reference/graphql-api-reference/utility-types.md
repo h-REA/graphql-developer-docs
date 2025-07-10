@@ -2,7 +2,22 @@
 
 These are common types used throughout the schema to provide standardized structures for things like pagination and metadata.
 
-## `PageInfo`
+## Scalar Types
+
+### `URI`
+The `URI` type simply declares a reference to an external web URL, Holochain entry or other resource.
+
+### `DateTime`
+The `DateTime` scalar type represents a DateTime value as specified by [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).
+
+### `Decimal`
+The `Decimal` scalar type represents arbitrary-precision floating-point numbers as specified by [IEEE 854-1987](https://en.wikipedia.org/wiki/IEEE_854-1987). They are represented as strings.
+
+---
+
+## Pagination
+
+### `PageInfo`
 Information about pagination in a connection.
 
 | Field | Type | Description |
@@ -11,29 +26,49 @@ Information about pagination in a connection.
 | `hasPreviousPage` | `Boolean!` | Indicates if there are previous pages of data. |
 | `startCursor` | `String` | The cursor of the first edge in the connection. |
 | `endCursor` | `String` | The cursor of the last edge in the connection. |
+| `totalCount` | `Int` | The total result count, if it can be determined. |
+| `pageLimit` | `Int` | The number of items requested per page. |
 
-## `RecordMeta`
+---
+
+## Record History
+
+### `RecordMeta`
 Generic metadata fields attached to all primary record types.
 
 | Field | Type | Description |
 | ----- | ---- | ----------- |
-| `revisionId` | `ID!` | The identifier of the last revision of the record. |
-| `revision` | `Revision` | Retrieves a specific revision of the record. |
-| `revisions` | `[Revision!]` | A list of all revisions of the record. |
-| `deletable` | `Boolean` | Indicates if the record can be safely deleted. |
+| `previousRevision` | `Revision` | Metadata about the previous revision of this record. |
+| `previousRevisionsCount`| `Int` | Number of older revisions, if known. |
+| `futureRevisionsCount` | `Int` | Number of newer revisions, if known. |
+| `latestRevision` | `Revision` | Metadata regarding the most recent revision of this record. |
+| `retrievedRevision`| `Revision!`| Metadata regarding the requested revision of this record. |
 
-## `Revision`
+### `Revision`
 Represents a single revision of a record.
 
 | Field | Type | Description |
 | ----- | ---- | ----------- |
 | `id` | `ID!` | A unique identifier for the revision. |
-| `timestamp` | `DateTime!` | The timestamp of when the revision was created. |
-| `author` | `Agent!` | The agent who authored the revision. |
-| `note` | `String` | An optional note about the revision. |
-| `record` | `JSONObject` | The record data at this revision. |
+| `time` | `DateTime` | The timestamp of when the revision was created. |
 
-## `Measure`
+---
+
+## Ordering
+
+### `Sort` (enum)
+Defines the sort order for a connection.
+
+| Value | Description |
+| ----- | ----------- |
+| `asc` | Ascending |
+| `desc` | Descending |
+
+---
+
+## Other Utility Types
+
+### `Measure`
 A quantity of something, including the value and the unit.
 
 | Field | Type | Description |
@@ -41,7 +76,7 @@ A quantity of something, including the value and the unit.
 | `hasNumericalValue` | `Decimal!` | The numeric value of the measure. |
 | `hasUnit` | `Unit!` | The unit of the measure. |
 
-## `Duration`
+### `Duration`
 The length of time something lasts.
 
 | Field | Type | Description |
@@ -49,7 +84,7 @@ The length of time something lasts.
 | `hasNumericalValue` | `Decimal!` | The numeric value of the duration. |
 | `hasUnit` | `Unit!` | The unit of time for the duration. |
 
-## `AccountingScope`
+### `AccountingScope`
 Grouping around something to create a boundary or context.
 
 | Field | Type | Description |

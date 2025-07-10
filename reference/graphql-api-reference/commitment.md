@@ -62,10 +62,50 @@ Deletes a `Commitment`.
 ## Related Types
 
 ### Input: `CommitmentCreateParams`
-See the full schema for the extensive list of fields for this input type. It includes fields for action, quantities, dates, related agents, and more.
+| Field | Type | Description |
+| ----- | ---- | ----------- |
+| `action` | `ID!` | The ID of the `Action` for the commitment. |
+| `resourceClassifiedAs`| `[URI!]`| References to a taxonomy for categorization. |
+| `resourceQuantity`| `IMeasure` | The amount and unit of the economic resource. |
+| `effortQuantity` | `IMeasure` | The amount and unit of the work or use action. |
+| `hasBeginning` | `DateTime` | The planned beginning of the commitment. |
+| `hasEnd` | `DateTime` | The planned end of the commitment. |
+| `hasPointInTime` | `DateTime` | The planned date/time for the commitment. |
+| `due` | `DateTime` | The time something is expected to be complete. |
+| `created` | `DateTime` | The creation time of the commitment. |
+| `finished` | `Boolean` | Indicates if the commitment is complete. |
+| `note` | `String` | A textual description or comment. |
+| `agreedIn` | `URI` | A reference to an agreement governing this commitment. |
+| `satisfies` | `ID` | The ID of the `Intent` this commitment satisfies. |
+| `provider` | `ID!` | The ID of the provider `Agent`. |
+| `receiver` | `ID!` | The ID of the receiver `Agent`. |
+| `inScopeOf` | `[ID!]` | The accounting scope of the commitment. |
+| `clauseOf` | `ID` | The ID of the `Agreement` this commitment is a clause of. |
+| `resourceInventoriedAs` | `ID` | The ID of the `EconomicResource` involved. |
+| `stage` | `ID` | The ID of the `ProcessSpecification`. |
+| `resourceConformsTo`| `ID` | The ID of the `ResourceSpecification`. |
+| `inputOf` | `ID` | The ID of the `Process` this is an input to. |
+| `outputOf` | `ID` | The ID of the `Process` this is an output of. |
 
 ### Input: `CommitmentUpdateParams`
-See the full schema for the extensive list of fields for this input type. It requires a `revisionId` and allows updating most fields of a `Commitment`.
+| Field | Type | Description |
+| ----- | ---- | ----------- |
+| `revisionId` | `ID!` | The revision ID of the commitment to update. |
+| `action` | `ID` | The ID of the `Action` for the commitment. |
+| `resourceClassifiedAs`| `[URI!]`| References to a taxonomy for categorization. |
+| `resourceQuantity`| `IMeasure` | The amount and unit of the economic resource. |
+| `effortQuantity` | `IMeasure` | The amount and unit of the work or use action. |
+| `hasBeginning` | `DateTime` | The planned beginning of the commitment. |
+| `hasEnd` | `DateTime` | The planned end of the commitment. |
+| `hasPointInTime` | `DateTime` | The planned date/time for the commitment. |
+| `due` | `DateTime` | The time something is expected to be complete. |
+| `created` | `DateTime` | The creation time of the commitment. |
+| `finished` | `Boolean` | Indicates if the commitment is complete. |
+| `note` | `String` | A textual description or comment. |
+| `agreedIn` | `URI` | A reference to an agreement governing this commitment. |
+| `clauseOf` | `ID` | The ID of the `Agreement` this commitment is a clause of. |
+| `stage` | `ID` | The ID of the `ProcessSpecification`. |
+| `resourceConformsTo`| `ID` | The ID of the `ResourceSpecification`. |
 
 ### Response: `CommitmentResponse`
 | Field | Type | Description |

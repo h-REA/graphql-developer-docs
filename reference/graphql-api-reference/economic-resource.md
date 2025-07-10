@@ -29,6 +29,10 @@ A resource which is useful to people or the ecosystem.
 | `intents` | `IntentConnection` | Intents involving this resource. |
 | `stage` | `ProcessSpecification` | The last process specification this resource went through. |
 | `conformsTo` | `ResourceSpecification!` | The specification that this resource conforms to. |
+| `previous` | `[EconomicEvent!]` | The previous event(s) in a production flow. |
+| `next` | `[EconomicEvent!]` | The next event(s) in a production flow. |
+| `track` | `[TrackTraceItem!]` | The item(s) to track from this resource. |
+| `trace` | `[TrackTraceItem!]` | The item(s) to trace from this resource. |
 
 ## Queries
 
@@ -47,7 +51,14 @@ Mutations for `EconomicResource` are handled via `createEconomicEvent` and `upda
 ## Related Types
 
 ### Input: `EconomicResourceCreateParams`
-Used when creating a resource alongside an `EconomicEvent`. See the full schema for fields.
+| Field | Type | Description |
+| ----- | ---- | ----------- |
+| `name` | `String` | An informal or formal textual identifier for an item. |
+| `trackingIdentifier`| `String` | A serial number or other unique tracking identifier. |
+| `image` | `URI` | A URI to an image for the resource. |
+| `imageList` | `[URI!]` | A list of URIs to images for the resource. |
+| `containedIn` | `ID` | The ID of the container resource. |
+| `note` | `String` | A textual description or comment. |
 
 ### Input: `EconomicResourceUpdateParams`
 | Field | Type | Description |
