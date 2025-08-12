@@ -7,12 +7,12 @@ description: >-
 
 # Quick Start: hREA Integration
 
-A step-by-step guide to integrating **hREA v0.3.2** into your scaffolded Holochain application.
+A step-by-step guide to integrating **hREA v0.3.3** into your scaffolded Holochain application.
 
 > **⚠️ Version Compatibility Notice**:
-> - **hREA v0.3.2** is compatible with **Holochain v0.2.x**
+> - **hREA v0.3.3** is compatible with **Holochain v0.5.x**
 >
-> This guide is specifically designed for **hREA version 0.3.2**. Different versions may require different integration steps.
+> This guide is specifically designed for **hREA version 0.3.3**. Different versions may require different integration steps.
 
 
 ## Prerequisites

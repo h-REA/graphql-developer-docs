@@ -5,11 +5,11 @@
 * [Integration Guide](integration-guide.md)
 * [Basic Usage with Lit](basic-usage-lit.md)
 
-## Advanced Topics
+<!-- ## Advanced Topics
 
 * [Thinking & Expressing ValueFlows](thinking-and-expressing-valueflows.md)
 * [Using "myAgent"](using-myagent.md)
-* [Configuring Enabled Modules](configuring-enabled-modules.md)
+* [Configuring Enabled Modules](configuring-enabled-modules.md) -->
 
 ## Reference
 

@@ -60,7 +60,7 @@ You need to download the pre-compiled hREA DNA and place it in your `workdir`. A
   "scripts": {
     "postinstall": "npm run download-hrea",
     // other scripts...
-    "download-hrea": "[ ! -f \"workdir/hrea.dna\" ] && curl -L --output workdir/hrea.dna https://github.com/h-REA/hREA/releases/download/happ-0.3.2-beta/hrea.dna; exit 0"
+    "download-hrea": "[ ! -f \"workdir/hrea.dna\" ] && curl -L --output workdir/hrea.dna https://github.com/h-REA/hREA/releases/download/happ-0.3.3-beta/hrea.dna; exit 0"
   }
 }
 ```
@@ -80,12 +80,12 @@ To communicate with the hREA DNA from your user interface, you will need to add 
 {
   "dependencies": {
     "@apollo/client": "^3.7.0",
-    "@valueflows/vf-graphql-holochain": "^0.0.3-alpha.10",
+    "@valueflows/vf-graphql-holochain": "^0.0.4-alpha.4",
     "graphql": "^16.6.0"
   }
 }
 ```
-*Note: The versions above are compatible with hREA v0.3.2. Check for the latest compatible versions if you are using a different release.*
+*Note: The versions above are compatible with hREA v0.3.3. Check for the latest compatible versions if you are using a different release.*
 
 **Key dependencies explained:**
 - `@apollo/client`: A powerful GraphQL client that helps manage data fetching, caching, and state.
