@@ -60,7 +60,7 @@ You need to download the pre-compiled hREA DNA and place it in your `workdir`. A
   "scripts": {
     "postinstall": "npm run download-hrea",
     // other scripts...
-    "download-hrea": "[ ! -f \"workdir/hrea.dna\" ] && curl -L --output workdir/hrea.dna https://github.com/h-REA/hREA/releases/download/happ-0.3.3-beta/hrea.dna; exit 0"
+    "download-hrea": "[ ! -f \"workdir/hrea.dna\" ] && curl -L --output workdir/hrea.dna https://github.com/h-REA/hREA/releases/download/happ-0.3.4-beta/hrea.dna; exit 0"
   }
 }
 ```
@@ -80,12 +80,12 @@ To communicate with the hREA DNA from your user interface, you will need to add 
 {
   "dependencies": {
     "@apollo/client": "^3.7.0",
-    "@valueflows/vf-graphql-holochain": "^0.0.4-alpha.4",
+    "@valueflows/vf-graphql-holochain": "^0.600.0-rc.0",
     "graphql": "^16.6.0"
   }
 }
 ```
-*Note: The versions above are compatible with hREA v0.3.3. Check for the latest compatible versions if you are using a different release.*
+*Note: The versions above are compatible with hREA v0.3.4. Check for the latest compatible versions if you are using a different release.*
 
 **Key dependencies explained:**
 - `@apollo/client`: A powerful GraphQL client that helps manage data fetching, caching, and state.
@@ -100,4 +100,4 @@ npm install  # or your chosen package manager
 
 ## Next Steps
 
-With the backend configuration complete, you are now ready to set up the client-side integration and start interacting with hREA from your UI. The next section, **[Basic Usage with Lit](basic-usage-lit.md)**, provides a complete, framework-agnostic example of how to connect to Holochain and hREA. 
+With the backend configuration complete, you are now ready to set up the client-side integration and start interacting with hREA from your UI. The next section, **[Basic Usage with Lit](basic-usage-lit.md)**, provides a complete, framework-agnostic example of how to connect to Holochain and hREA.
