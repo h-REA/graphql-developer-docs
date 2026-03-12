@@ -1,0 +1,3091 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation for the hREA GraphQL APIs">
+      
+      
+      
+        <link rel="canonical" href="https://docs.hrea.io/reference/graphql-api-reference/recipe/">
+      
+      
+        <link rel="prev" href="../proposal/">
+      
+      
+        <link rel="next" href="../resource-specification/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+    
+    
+      
+        <title>Recipe - hREA Developer Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#recipe" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="hREA Developer Docs" class="md-header__button md-logo" aria-label="hREA Developer Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            hREA Developer Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Recipe
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="teal"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/h-REA/graphql-developer-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    h-REA/graphql-developer-docs
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Welcome
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../quick-start/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Quick Start
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../integration-guide/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Integration Guide
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../basic-usage-lit/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Basic Usage with Lit
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../thinking-and-expressing-valueflows/" class="md-tabs__link">
+          
+  
+  
+  Advanced Topics
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../ship-to-production/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Ship to Production
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="hREA Developer Docs" class="md-nav__button md-logo" aria-label="hREA Developer Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    hREA Developer Docs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/h-REA/graphql-developer-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    h-REA/graphql-developer-docs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Welcome
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../quick-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../integration-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Integration Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basic-usage-lit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Basic Usage with Lit
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GraphQL API Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../action/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Action
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../agent/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agent
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../agent-relationship/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AgentRelationship
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../agent-relationship-role/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AgentRelationshipRole
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../agreement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agreement
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appreciation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Appreciation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../claim/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Claim
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../commitment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commitment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../economic-event/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    EconomicEvent
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../economic-resource/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    EconomicResource
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../geolocation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Geolocation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intent/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Intent
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../measurement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Measurement
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plan
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../process/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Process
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../process-specification/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Process Specification
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../product-batch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Product Batch
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../proposal/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Proposal
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Recipe
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Recipe
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Types
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Types">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#recipeflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RecipeFlow
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recipeprocess" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RecipeProcess
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recipeexchange" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RecipeExchange
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Queries
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Queries">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#recipeflowid-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        recipeFlow(id: ID!)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recipeflowsfirst-int-after-string-last-int-before-string" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        recipeFlows(first: Int, after: String, last: Int, before: String)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recipeprocessid-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        recipeProcess(id: ID!)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recipeprocessesfirst-int-after-string-last-int-before-string" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        recipeProcesses(first: Int, after: String, last: Int, before: String)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recipeexchangeid-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        recipeExchange(id: ID!)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recipeexchangesfirst-int-after-string-last-int-before-string" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        recipeExchanges(first: Int, after: String, last: Int, before: String)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mutations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mutations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mutations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#createrecipeflowflow-recipeflowcreateparams" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        createRecipeFlow(flow: RecipeFlowCreateParams!)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updaterecipeflowflow-recipeflowupdateparams" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        updateRecipeFlow(flow: RecipeFlowUpdateParams!)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deleterecipeflowrevisionid-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        deleteRecipeFlow(revisionId: ID!)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#createrecipeprocessprocess-recipeprocesscreateparams" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        createRecipeProcess(process: RecipeProcessCreateParams!)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updaterecipeprocessprocess-recipeprocessupdateparams" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        updateRecipeProcess(process: RecipeProcessUpdateParams!)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deleterecipeprocessrevisionid-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        deleteRecipeProcess(revisionId: ID!)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#createrecipeexchangeexchange-recipeexchangecreateparams" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        createRecipeExchange(exchange: RecipeExchangeCreateParams!)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updaterecipeexchangeexchange-recipeexchangeupdateparams" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        updateRecipeExchange(exchange: RecipeExchangeUpdateParams!)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deleterecipeexchangerevisionid-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        deleteRecipeExchange(revisionId: ID!)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related Types
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Related Types">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#input-recipeflowcreateparams" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Input: RecipeFlowCreateParams
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#input-recipeflowupdateparams" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Input: RecipeFlowUpdateParams
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#response-recipeflowresponse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Response: RecipeFlowResponse
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#input-recipeprocesscreateparams" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Input: RecipeProcessCreateParams
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#input-recipeprocessupdateparams" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Input: RecipeProcessUpdateParams
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#response-recipeprocessresponse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Response: RecipeProcessResponse
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#input-recipeexchangecreateparams" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Input: RecipeExchangeCreateParams
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#input-recipeexchangeupdateparams" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Input: RecipeExchangeUpdateParams
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#response-recipeexchangeresponse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Response: RecipeExchangeResponse
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connection-recipeflowconnection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Connection: RecipeFlowConnection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#edge-recipeflowedge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Edge: RecipeFlowEdge
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connection-recipeprocessconnection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Connection: RecipeProcessConnection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#edge-recipeprocessedge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Edge: RecipeProcessEdge
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connection-recipeexchangeconnection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Connection: RecipeExchangeConnection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#edge-recipeexchangeedge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Edge: RecipeExchangeEdge
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../resource-specification/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resource Specification
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scenario/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scenario
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scalars/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scalars
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../utility-types/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Utility Types
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Advanced Topics
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Advanced Topics
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../thinking-and-expressing-valueflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Thinking & Expressing ValueFlows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../using-myagent/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Using myAgent
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../configuring-enabled-modules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuring Enabled Modules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ship-to-production/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ship to Production
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Types
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Types">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#recipeflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RecipeFlow
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recipeprocess" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RecipeProcess
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recipeexchange" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RecipeExchange
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Queries
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Queries">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#recipeflowid-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        recipeFlow(id: ID!)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recipeflowsfirst-int-after-string-last-int-before-string" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        recipeFlows(first: Int, after: String, last: Int, before: String)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recipeprocessid-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        recipeProcess(id: ID!)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recipeprocessesfirst-int-after-string-last-int-before-string" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        recipeProcesses(first: Int, after: String, last: Int, before: String)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recipeexchangeid-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        recipeExchange(id: ID!)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recipeexchangesfirst-int-after-string-last-int-before-string" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        recipeExchanges(first: Int, after: String, last: Int, before: String)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mutations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mutations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mutations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#createrecipeflowflow-recipeflowcreateparams" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        createRecipeFlow(flow: RecipeFlowCreateParams!)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updaterecipeflowflow-recipeflowupdateparams" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        updateRecipeFlow(flow: RecipeFlowUpdateParams!)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deleterecipeflowrevisionid-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        deleteRecipeFlow(revisionId: ID!)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#createrecipeprocessprocess-recipeprocesscreateparams" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        createRecipeProcess(process: RecipeProcessCreateParams!)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updaterecipeprocessprocess-recipeprocessupdateparams" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        updateRecipeProcess(process: RecipeProcessUpdateParams!)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deleterecipeprocessrevisionid-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        deleteRecipeProcess(revisionId: ID!)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#createrecipeexchangeexchange-recipeexchangecreateparams" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        createRecipeExchange(exchange: RecipeExchangeCreateParams!)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updaterecipeexchangeexchange-recipeexchangeupdateparams" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        updateRecipeExchange(exchange: RecipeExchangeUpdateParams!)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deleterecipeexchangerevisionid-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        deleteRecipeExchange(revisionId: ID!)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related Types
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Related Types">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#input-recipeflowcreateparams" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Input: RecipeFlowCreateParams
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#input-recipeflowupdateparams" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Input: RecipeFlowUpdateParams
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#response-recipeflowresponse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Response: RecipeFlowResponse
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#input-recipeprocesscreateparams" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Input: RecipeProcessCreateParams
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#input-recipeprocessupdateparams" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Input: RecipeProcessUpdateParams
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#response-recipeprocessresponse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Response: RecipeProcessResponse
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#input-recipeexchangecreateparams" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Input: RecipeExchangeCreateParams
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#input-recipeexchangeupdateparams" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Input: RecipeExchangeUpdateParams
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#response-recipeexchangeresponse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Response: RecipeExchangeResponse
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connection-recipeflowconnection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Connection: RecipeFlowConnection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#edge-recipeflowedge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Edge: RecipeFlowEdge
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connection-recipeprocessconnection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Connection: RecipeProcessConnection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#edge-recipeprocessedge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Edge: RecipeProcessEdge
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connection-recipeexchangeconnection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Connection: RecipeExchangeConnection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#edge-recipeexchangeedge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Edge: RecipeExchangeEdge
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="recipe">Recipe<a class="headerlink" href="#recipe" title="Permanent link">&para;</a></h1>
+<p>A recipe is a shareable blueprint for a workflow, which can be used to create plans for carrying out work. It consists of processes, flows, and exchanges.</p>
+<hr />
+<h2 id="types">Types<a class="headerlink" href="#types" title="Permanent link">&para;</a></h2>
+<h3 id="recipeflow"><code>RecipeFlow</code><a class="headerlink" href="#recipeflow" title="Permanent link">&para;</a></h3>
+<p>Specifies the inflow or outflow of a resource for a recipe process.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td><code>ID!</code></td>
+<td>Unique identifier for the recipe flow.</td>
+</tr>
+<tr>
+<td><code>revisionId</code></td>
+<td><code>ID!</code></td>
+<td>The identifier of the last revision of this recipe flow.</td>
+</tr>
+<tr>
+<td><code>resourceQuantity</code></td>
+<td><code>Measure</code></td>
+<td>The amount and unit of the economic resource.</td>
+</tr>
+<tr>
+<td><code>effortQuantity</code></td>
+<td><code>Measure</code></td>
+<td>The amount and unit of the work or use action.</td>
+</tr>
+<tr>
+<td><code>action</code></td>
+<td><code>Action!</code></td>
+<td>The action associated with the flow (e.g., consume, produce).</td>
+</tr>
+<tr>
+<td><code>recipeInputOf</code></td>
+<td><code>RecipeProcess</code></td>
+<td>The process this flow is an input to.</td>
+</tr>
+<tr>
+<td><code>recipeOutputOf</code></td>
+<td><code>RecipeProcess</code></td>
+<td>The process this flow is an output of.</td>
+</tr>
+<tr>
+<td><code>recipeClauseOf</code></td>
+<td><code>RecipeExchange</code></td>
+<td>The exchange agreement this flow is a clause of.</td>
+</tr>
+<tr>
+<td><code>recipeReciprocalClauseOf</code></td>
+<td><code>RecipeExchange</code></td>
+<td>The reciprocal exchange agreement for this flow.</td>
+</tr>
+<tr>
+<td><code>stage</code></td>
+<td><code>ProcessSpecification</code></td>
+<td>The process specification for this flow.</td>
+</tr>
+<tr>
+<td><code>instructions</code></td>
+<td><code>String</code></td>
+<td>Instructions for planning.</td>
+</tr>
+<tr>
+<td><code>note</code></td>
+<td><code>String</code></td>
+<td>A textual description or comment.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="recipeprocess"><code>RecipeProcess</code><a class="headerlink" href="#recipeprocess" title="Permanent link">&para;</a></h3>
+<p>Specifies a process within a recipe.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td><code>ID!</code></td>
+<td>Unique identifier for the recipe process.</td>
+</tr>
+<tr>
+<td><code>revisionId</code></td>
+<td><code>ID!</code></td>
+<td>The identifier of the last revision of this recipe process.</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td><code>String!</code></td>
+<td>A name for the recipe process.</td>
+</tr>
+<tr>
+<td><code>hasDuration</code></td>
+<td><code>Duration</code></td>
+<td>The planned duration of the process.</td>
+</tr>
+<tr>
+<td><code>processClassifiedAs</code></td>
+<td><code>[URI!]</code></td>
+<td>References to a taxonomy for categorization.</td>
+</tr>
+<tr>
+<td><code>note</code></td>
+<td><code>String</code></td>
+<td>A textual description or comment.</td>
+</tr>
+<tr>
+<td><code>image</code></td>
+<td><code>URI</code></td>
+<td>An image representing the process.</td>
+</tr>
+<tr>
+<td><code>recipeInputs</code></td>
+<td><code>[RecipeFlow!]</code></td>
+<td>The non-reciprocal flows that are part of this process.</td>
+</tr>
+<tr>
+<td><code>recipeOutputs</code></td>
+<td><code>[RecipeFlow!]</code></td>
+<td>The reciprocal flows that are part of this process.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="recipeexchange"><code>RecipeExchange</code><a class="headerlink" href="#recipeexchange" title="Permanent link">&para;</a></h3>
+<p>Specifies an exchange agreement within a recipe.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td><code>ID!</code></td>
+<td>Unique identifier for the recipe exchange.</td>
+</tr>
+<tr>
+<td><code>revisionId</code></td>
+<td><code>ID!</code></td>
+<td>The identifier of the last revision of this recipe exchange.</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td><code>String!</code></td>
+<td>A name for the recipe exchange.</td>
+</tr>
+<tr>
+<td><code>note</code></td>
+<td><code>String</code></td>
+<td>A textual description or comment.</td>
+</tr>
+<tr>
+<td><code>recipeClauses</code></td>
+<td><code>[RecipeFlow!]</code></td>
+<td>The non-reciprocal flows that are part of this exchange.</td>
+</tr>
+<tr>
+<td><code>recipeReciprocalClauses</code></td>
+<td><code>[RecipeFlow!]</code></td>
+<td>The reciprocal flows that are part of this exchange.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="queries">Queries<a class="headerlink" href="#queries" title="Permanent link">&para;</a></h2>
+<h3 id="recipeflowid-id"><code>recipeFlow(id: ID!)</code><a class="headerlink" href="#recipeflowid-id" title="Permanent link">&para;</a></h3>
+<p>Retrieves a single <code>RecipeFlow</code> by its <code>id</code>.</p>
+<h3 id="recipeflowsfirst-int-after-string-last-int-before-string"><code>recipeFlows(first: Int, after: String, last: Int, before: String)</code><a class="headerlink" href="#recipeflowsfirst-int-after-string-last-int-before-string" title="Permanent link">&para;</a></h3>
+<p>Retrieves a paginated list of all <code>RecipeFlow</code>s.</p>
+<h3 id="recipeprocessid-id"><code>recipeProcess(id: ID!)</code><a class="headerlink" href="#recipeprocessid-id" title="Permanent link">&para;</a></h3>
+<p>Retrieves a single <code>RecipeProcess</code> by its <code>id</code>.</p>
+<h3 id="recipeprocessesfirst-int-after-string-last-int-before-string"><code>recipeProcesses(first: Int, after: String, last: Int, before: String)</code><a class="headerlink" href="#recipeprocessesfirst-int-after-string-last-int-before-string" title="Permanent link">&para;</a></h3>
+<p>Retrieves a paginated list of all <code>RecipeProcess</code>es.</p>
+<h3 id="recipeexchangeid-id"><code>recipeExchange(id: ID!)</code><a class="headerlink" href="#recipeexchangeid-id" title="Permanent link">&para;</a></h3>
+<p>Retrieves a single <code>RecipeExchange</code> by its <code>id</code>.</p>
+<h3 id="recipeexchangesfirst-int-after-string-last-int-before-string"><code>recipeExchanges(first: Int, after: String, last: Int, before: String)</code><a class="headerlink" href="#recipeexchangesfirst-int-after-string-last-int-before-string" title="Permanent link">&para;</a></h3>
+<p>Retrieves a paginated list of all <code>RecipeExchange</code>s.</p>
+<hr />
+<h2 id="mutations">Mutations<a class="headerlink" href="#mutations" title="Permanent link">&para;</a></h2>
+<h3 id="createrecipeflowflow-recipeflowcreateparams"><code>createRecipeFlow(flow: RecipeFlowCreateParams!)</code><a class="headerlink" href="#createrecipeflowflow-recipeflowcreateparams" title="Permanent link">&para;</a></h3>
+<p>Creates a new <code>RecipeFlow</code>.</p>
+<h3 id="updaterecipeflowflow-recipeflowupdateparams"><code>updateRecipeFlow(flow: RecipeFlowUpdateParams!)</code><a class="headerlink" href="#updaterecipeflowflow-recipeflowupdateparams" title="Permanent link">&para;</a></h3>
+<p>Updates an existing <code>RecipeFlow</code>.</p>
+<h3 id="deleterecipeflowrevisionid-id"><code>deleteRecipeFlow(revisionId: ID!)</code><a class="headerlink" href="#deleterecipeflowrevisionid-id" title="Permanent link">&para;</a></h3>
+<p>Deletes a <code>RecipeFlow</code>.</p>
+<h3 id="createrecipeprocessprocess-recipeprocesscreateparams"><code>createRecipeProcess(process: RecipeProcessCreateParams!)</code><a class="headerlink" href="#createrecipeprocessprocess-recipeprocesscreateparams" title="Permanent link">&para;</a></h3>
+<p>Creates a new <code>RecipeProcess</code>.</p>
+<h3 id="updaterecipeprocessprocess-recipeprocessupdateparams"><code>updateRecipeProcess(process: RecipeProcessUpdateParams!)</code><a class="headerlink" href="#updaterecipeprocessprocess-recipeprocessupdateparams" title="Permanent link">&para;</a></h3>
+<p>Updates an existing <code>RecipeProcess</code>.</p>
+<h3 id="deleterecipeprocessrevisionid-id"><code>deleteRecipeProcess(revisionId: ID!)</code><a class="headerlink" href="#deleterecipeprocessrevisionid-id" title="Permanent link">&para;</a></h3>
+<p>Deletes a <code>RecipeProcess</code>.</p>
+<h3 id="createrecipeexchangeexchange-recipeexchangecreateparams"><code>createRecipeExchange(exchange: RecipeExchangeCreateParams!)</code><a class="headerlink" href="#createrecipeexchangeexchange-recipeexchangecreateparams" title="Permanent link">&para;</a></h3>
+<p>Creates a new <code>RecipeExchange</code>.</p>
+<h3 id="updaterecipeexchangeexchange-recipeexchangeupdateparams"><code>updateRecipeExchange(exchange: RecipeExchangeUpdateParams!)</code><a class="headerlink" href="#updaterecipeexchangeexchange-recipeexchangeupdateparams" title="Permanent link">&para;</a></h3>
+<p>Updates an existing <code>RecipeExchange</code>.</p>
+<h3 id="deleterecipeexchangerevisionid-id"><code>deleteRecipeExchange(revisionId: ID!)</code><a class="headerlink" href="#deleterecipeexchangerevisionid-id" title="Permanent link">&para;</a></h3>
+<p>Deletes a <code>RecipeExchange</code>.</p>
+<hr />
+<h2 id="related-types">Related Types<a class="headerlink" href="#related-types" title="Permanent link">&para;</a></h2>
+<h3 id="input-recipeflowcreateparams">Input: <code>RecipeFlowCreateParams</code><a class="headerlink" href="#input-recipeflowcreateparams" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>action</code></td>
+<td><code>ID!</code></td>
+<td>The ID of the <code>Action</code> for the flow.</td>
+</tr>
+<tr>
+<td><code>resourceQuantity</code></td>
+<td><code>IMeasure</code></td>
+<td>The amount and unit of the economic resource.</td>
+</tr>
+<tr>
+<td><code>effortQuantity</code></td>
+<td><code>IMeasure</code></td>
+<td>The amount and unit of the work or use action.</td>
+</tr>
+<tr>
+<td><code>recipeInputOf</code></td>
+<td><code>ID</code></td>
+<td>The ID of the <code>RecipeProcess</code> this flow is an input to.</td>
+</tr>
+<tr>
+<td><code>recipeOutputOf</code></td>
+<td><code>ID</code></td>
+<td>The ID of the <code>RecipeProcess</code> this flow is an output of.</td>
+</tr>
+<tr>
+<td><code>recipeClauseOf</code></td>
+<td><code>ID</code></td>
+<td>The ID of the <code>RecipeExchange</code> this flow is a clause of.</td>
+</tr>
+<tr>
+<td><code>recipeReciprocalClauseOf</code></td>
+<td><code>ID</code></td>
+<td>The ID of the reciprocal <code>RecipeExchange</code>.</td>
+</tr>
+<tr>
+<td><code>stage</code></td>
+<td><code>ID</code></td>
+<td>The ID of the <code>ProcessSpecification</code> for this flow.</td>
+</tr>
+<tr>
+<td><code>state</code></td>
+<td><code>String</code></td>
+<td>The state of the desired economic resource.</td>
+</tr>
+<tr>
+<td><code>instructions</code></td>
+<td><code>String</code></td>
+<td>Instructions for planning.</td>
+</tr>
+<tr>
+<td><code>note</code></td>
+<td><code>String</code></td>
+<td>A textual description or comment.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="input-recipeflowupdateparams">Input: <code>RecipeFlowUpdateParams</code><a class="headerlink" href="#input-recipeflowupdateparams" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>revisionId</code></td>
+<td><code>ID!</code></td>
+<td>The revision ID of the flow to update.</td>
+</tr>
+<tr>
+<td><code>action</code></td>
+<td><code>ID</code></td>
+<td>The ID of the <code>Action</code> for the flow.</td>
+</tr>
+<tr>
+<td><code>resourceQuantity</code></td>
+<td><code>IMeasure</code></td>
+<td>The amount and unit of the economic resource.</td>
+</tr>
+<tr>
+<td><code>effortQuantity</code></td>
+<td><code>IMeasure</code></td>
+<td>The amount and unit of the work or use action.</td>
+</tr>
+<tr>
+<td><code>recipeInputOf</code></td>
+<td><code>ID</code></td>
+<td>The ID of the <code>RecipeProcess</code> this flow is an input to.</td>
+</tr>
+<tr>
+<td><code>recipeOutputOf</code></td>
+<td><code>ID</code></td>
+<td>The ID of the <code>RecipeProcess</code> this flow is an output of.</td>
+</tr>
+<tr>
+<td><code>recipeClauseOf</code></td>
+<td><code>ID</code></td>
+<td>The ID of the <code>RecipeExchange</code> this flow is a clause of.</td>
+</tr>
+<tr>
+<td><code>recipeReciprocalClauseOf</code></td>
+<td><code>ID</code></td>
+<td>The ID of the reciprocal <code>RecipeExchange</code>.</td>
+</tr>
+<tr>
+<td><code>stage</code></td>
+<td><code>ID</code></td>
+<td>The ID of the <code>ProcessSpecification</code> for this flow.</td>
+</tr>
+<tr>
+<td><code>state</code></td>
+<td><code>String</code></td>
+<td>The state of the desired economic resource.</td>
+</tr>
+<tr>
+<td><code>instructions</code></td>
+<td><code>String</code></td>
+<td>Instructions for planning.</td>
+</tr>
+<tr>
+<td><code>note</code></td>
+<td><code>String</code></td>
+<td>A textual description or comment.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="response-recipeflowresponse">Response: <code>RecipeFlowResponse</code><a class="headerlink" href="#response-recipeflowresponse" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>recipeFlow</code></td>
+<td><code>RecipeFlow!</code></td>
+<td>The <code>RecipeFlow</code> that was created or updated.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="input-recipeprocesscreateparams">Input: <code>RecipeProcessCreateParams</code><a class="headerlink" href="#input-recipeprocesscreateparams" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code></td>
+<td><code>String!</code></td>
+<td>A name for the recipe process.</td>
+</tr>
+<tr>
+<td><code>hasDuration</code></td>
+<td><code>IDuration</code></td>
+<td>The planned duration of the process.</td>
+</tr>
+<tr>
+<td><code>processClassifiedAs</code></td>
+<td><code>[URI!]</code></td>
+<td>References to a taxonomy for categorization.</td>
+</tr>
+<tr>
+<td><code>note</code></td>
+<td><code>String</code></td>
+<td>A textual description or comment.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="input-recipeprocessupdateparams">Input: <code>RecipeProcessUpdateParams</code><a class="headerlink" href="#input-recipeprocessupdateparams" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>revisionId</code></td>
+<td><code>ID!</code></td>
+<td>The revision ID of the process to update.</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td><code>String</code></td>
+<td>A name for the recipe process.</td>
+</tr>
+<tr>
+<td><code>hasDuration</code></td>
+<td><code>IDuration</code></td>
+<td>The planned duration of the process.</td>
+</tr>
+<tr>
+<td><code>processClassifiedAs</code></td>
+<td><code>[URI!]</code></td>
+<td>References to a taxonomy for categorization.</td>
+</tr>
+<tr>
+<td><code>note</code></td>
+<td><code>String</code></td>
+<td>A textual description or comment.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="response-recipeprocessresponse">Response: <code>RecipeProcessResponse</code><a class="headerlink" href="#response-recipeprocessresponse" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>recipeProcess</code></td>
+<td><code>RecipeProcess!</code></td>
+<td>The <code>RecipeProcess</code> that was created or updated.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="input-recipeexchangecreateparams">Input: <code>RecipeExchangeCreateParams</code><a class="headerlink" href="#input-recipeexchangecreateparams" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code></td>
+<td><code>String!</code></td>
+<td>A name for the recipe exchange.</td>
+</tr>
+<tr>
+<td><code>note</code></td>
+<td><code>String</code></td>
+<td>A textual description or comment.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="input-recipeexchangeupdateparams">Input: <code>RecipeExchangeUpdateParams</code><a class="headerlink" href="#input-recipeexchangeupdateparams" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>revisionId</code></td>
+<td><code>ID!</code></td>
+<td>The revision ID of the exchange to update.</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td><code>String</code></td>
+<td>A name for the recipe exchange.</td>
+</tr>
+<tr>
+<td><code>note</code></td>
+<td><code>String</code></td>
+<td>A textual description or comment.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="response-recipeexchangeresponse">Response: <code>RecipeExchangeResponse</code><a class="headerlink" href="#response-recipeexchangeresponse" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>recipeExchange</code></td>
+<td><code>RecipeExchange!</code></td>
+<td>The <code>RecipeExchange</code> that was created or updated.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="connection-recipeflowconnection">Connection: <code>RecipeFlowConnection</code><a class="headerlink" href="#connection-recipeflowconnection" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>edges</code></td>
+<td><code>[RecipeFlowEdge!]!</code></td>
+<td>A list of recipe flow edges.</td>
+</tr>
+<tr>
+<td><code>pageInfo</code></td>
+<td><code>PageInfo!</code></td>
+<td>Information to aid in pagination.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="edge-recipeflowedge">Edge: <code>RecipeFlowEdge</code><a class="headerlink" href="#edge-recipeflowedge" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>node</code></td>
+<td><code>RecipeFlow!</code></td>
+<td>The <code>RecipeFlow</code> record.</td>
+</tr>
+<tr>
+<td><code>cursor</code></td>
+<td><code>String!</code></td>
+<td>A cursor for use in pagination.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="connection-recipeprocessconnection">Connection: <code>RecipeProcessConnection</code><a class="headerlink" href="#connection-recipeprocessconnection" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>edges</code></td>
+<td><code>[RecipeProcessEdge!]!</code></td>
+<td>A list of recipe process edges.</td>
+</tr>
+<tr>
+<td><code>pageInfo</code></td>
+<td><code>PageInfo!</code></td>
+<td>Information to aid in pagination.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="edge-recipeprocessedge">Edge: <code>RecipeProcessEdge</code><a class="headerlink" href="#edge-recipeprocessedge" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>node</code></td>
+<td><code>RecipeProcess!</code></td>
+<td>The <code>RecipeProcess</code> record.</td>
+</tr>
+<tr>
+<td><code>cursor</code></td>
+<td><code>String!</code></td>
+<td>A cursor for use in pagination.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="connection-recipeexchangeconnection">Connection: <code>RecipeExchangeConnection</code><a class="headerlink" href="#connection-recipeexchangeconnection" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>edges</code></td>
+<td><code>[RecipeExchangeEdge!]!</code></td>
+<td>A list of recipe exchange edges.</td>
+</tr>
+<tr>
+<td><code>pageInfo</code></td>
+<td><code>PageInfo!</code></td>
+<td>Information to aid in pagination.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="edge-recipeexchangeedge">Edge: <code>RecipeExchangeEdge</code><a class="headerlink" href="#edge-recipeexchangeedge" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>node</code></td>
+<td><code>RecipeExchange!</code></td>
+<td>The <code>RecipeExchange</code> record.</td>
+</tr>
+<tr>
+<td><code>cursor</code></td>
+<td><code>String!</code></td>
+<td>A cursor for use in pagination.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
