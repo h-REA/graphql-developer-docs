@@ -1,5 +1,5 @@
 site_name: hREA Developer Docs
-site_url: !ENV [SITE_URL, 'https://docs.hrea.io']
+site_url: https://docs.hrea.io
 site_description: Documentation for the hREA GraphQL APIs
 repo_url: https://github.com/h-REA/graphql-developer-docs
 repo_name: h-REA/graphql-developer-docs

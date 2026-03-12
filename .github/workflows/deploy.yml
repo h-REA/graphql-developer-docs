@@ -39,8 +39,6 @@ jobs:
 
       - name: Build documentation
         run: mkdocs build --strict
-        env:
-          SITE_URL: ${{ steps.pages.outputs.base_url }}
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
