@@ -7,12 +7,12 @@ description: >-
 
 # Quick Start: hREA Integration
 
-A step-by-step guide to integrating **hREA v0.3.3** into your scaffolded Holochain application.
+A step-by-step guide to integrating **[hREA v0.3.4](https://github.com/holochain/hREA/releases/tag/v0.3.4)** into your scaffolded Holochain application.
 
 > **⚠️ Version Compatibility Notice**:
-> - **hREA v0.3.3** is compatible with **Holochain v0.5.x**
+> - **hREA v0.3.4** is compatible with **Holochain v0.6.x**
 >
-> This guide is specifically designed for **hREA version 0.3.3**. Different versions may require different integration steps.
+> This guide is specifically designed for **hREA version 0.3.4**. Different versions may require different integration steps.
 
 
 ## Prerequisites
@@ -58,4 +58,3 @@ For more detailed scaffolding instructions, you can refer to the official docume
 ## Next Steps
 
 Once you have scaffolded your new application, you are ready to begin integrating the hREA modules. The next section, the **[Integration Guide](integration-guide.md)**, will walk you through the process of adding the hREA DNA to your project and configuring it correctly.
-

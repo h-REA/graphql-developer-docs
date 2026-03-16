@@ -7,13 +7,13 @@ description: >-
 
 # Thinking & Expressing ValueFlows
 
-If you have gone through the [Quick Start - API Explorer](quick-start.md) setup, you will be seeing something like the following screen.
+If you have gone through the [Quick Start](index.md) and [Integration Guide](integration-guide.md) to set up your hREA development environment, you will have access to a GraphQL playground interface to explore the API interactively.
 
 ![a web browser with 3 panels lined up horizontally, the left has code in it, the middle is empty, and right has some developer documentation](https://i.imgur.com/14flkez.png)
 
 It is a user interface, but isn't an "end user application". It is a "[graphiql](https://github.com/graphql/graphiql)" explorer (the "i" stands for "interactive"), built for mostly for engaging as a developer with a ["graphql"](https://graphql.org/) application programming interface (API). However, anyone can use it, and you're encouraged to stick with this, and see what you can do.
 
-This interface is super handy for testing and getting to know the ValueFlows data structures and functions.
+This interface is super handy for testing and getting to know the ValueFlows data structures and functions. For a complete working example, you can also follow the [Basic Usage with Lit](basic-usage-lit.md) guide which shows how to build a functional UI that connects to hREA.
 
 We can imagine a different "end user interface" making the same underlying graphql queries and mutations as we will make using this more developer-centric user interface.
 
@@ -125,7 +125,7 @@ Because we're going to need valid agent `ID`s for `provider` and `receiver` we c
 Use the following query in order to retrieve your own agent ID.&#x20;
 
 {% hint style="warning" %}
-This will ONLY work if you have gone through the first two steps of the [Quick Start - API Explorer](quick-start.md) tutorial, or otherwise called `associateMyAgent`
+This will ONLY work if you have set up your hREA development environment by following the [Quick Start](index.md) and [Integration Guide](integration-guide.md), and have called `associateMyAgent` to link your agent identity
 {% endhint %}
 
 ```graphql
