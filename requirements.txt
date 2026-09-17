@@ -1,0 +1,4 @@
+# Documentation toolchain. Pinned so a CI build and a local `mkdocs serve`
+# produce the same site, and so `cache: pip` in the workflow has a file to
+# key on.
+mkdocs-material>=9.7,<10

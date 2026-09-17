@@ -1,25 +1,30 @@
-# Welcome!
+# hREA developer docs
 
-## Welcome to hREA Developer Docs
+Source for [docs.hrea.io](https://docs.hrea.io), the developer documentation for the hREA GraphQL APIs.
 
-Welcome to hREA! Here you'll find all the documentation you need to get up and running with the hREA APIs. While this documentation discusses a set of GraphQL APIs, which could in general have multiple language implementations, all of this documentation is at this time focused on a library written for browser and nodejs based javascript projects.
+## How this repository publishes
 
-{% hint style="info" %}
-If you're looking for more general information about hREA, check out the main website [https://hrea.io](https://hrea.io)
-{% endhint %}
+- **`docs/` is the source.** Every page lives there. `mkdocs.yml` at the root holds the theme and the navigation.
+- **`main` is the branch that publishes.** A push to `main` runs `.github/workflows/deploy.yml`, which builds the site with MkDocs Material and pushes the result to `gh-pages`.
+- **`gh-pages` is machine-written.** GitHub Pages serves it at docs.hrea.io. Never edit it by hand.
+- **Pull requests build but do not publish.** The same workflow runs `mkdocs build --strict` on every PR, so a nav entry pointing at a missing file, or a dead internal link, fails the check rather than reaching the site.
 
-## Want to jump right in?
+If you edit a page and nothing changes on the site, check the Actions tab first. Before September 2026 the MkDocs setup lived on a `github-pages` branch that was never merged, so edits to `main` published nothing at all. That is fixed, and the branch is superseded.
 
-Feeling like an eager beaver? Jump in to the quick start docs and get making your first request:
+## Working on the docs locally
 
-{% content-ref url="quick-start.md" %}
-[quick-start.md](quick-start.md)
-{% endcontent-ref %}
+```bash
+pip install mkdocs-material
+mkdocs serve             # live preview on http://127.0.0.1:8000
+mkdocs build --strict    # the same check CI runs
+```
 
-## Want to deep dive?
+## What belongs here, and what belongs in the hREA repository
 
-Dive a little deeper and start exploring our API reference to get an idea of everything that's possible with the API:
+This site is for developers **building an application on hREA**: getting connected, the integration path, and the GraphQL reference.
 
-{% content-ref url="reference/graphql-api-reference/" %}
-[graphql-api-reference](reference/graphql-api-reference/)
-{% endcontent-ref %}
+Documentation for developers working **on hREA itself** lives with the code, in [`docs/` in the hREA repository](https://github.com/h-REA/hREA/tree/sprout/docs): architecture, repository structure, contributing, and how to consume a release. Where this site needs a fact that the hREA repository already states, it links there rather than keeping a second copy that can drift.
+
+## License
+
+Apache 2.0, as with the rest of hREA.
