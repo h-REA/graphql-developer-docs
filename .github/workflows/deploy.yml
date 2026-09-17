@@ -31,7 +31,7 @@ jobs:
           cache: pip
 
       - name: Install MkDocs and dependencies
-        run: pip install mkdocs-material
+        run: pip install -r requirements.txt
 
       # --strict turns warnings into errors: a nav entry pointing at a missing
       # file, or a markdown link that resolves to nothing, fails here.
@@ -56,7 +56,7 @@ jobs:
           cache: pip
 
       - name: Install MkDocs and dependencies
-        run: pip install mkdocs-material
+        run: pip install -r requirements.txt
 
       - name: Configure git credentials
         run: |
