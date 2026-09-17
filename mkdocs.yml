@@ -52,6 +52,7 @@ nav:
   - Integration Guide: integration-guide.md
   - Basic Usage: basic-usage-lit.md
   - Consuming a Release: consuming-a-release.md
+  - Validation Rules: validation-rules.md
   - Reference:
     - GraphQL API Reference: reference/graphql-api-reference/README.md
     - Action: reference/graphql-api-reference/action.md

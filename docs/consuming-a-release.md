@@ -36,7 +36,9 @@ Two things will reach your own code, and neither is optional.
 
 **Holochain 0.6 to 0.7 breaks your integrity zomes.** Every `validate_*` signature moves from `EntryCreationAction` to `TypedAction<EntryCreationData>` and its siblings, and the action wire format splits. The exact before and after, in copyable form, is in the hREA repository's [consuming-a-release](https://github.com/h-REA/hREA/blob/sprout/docs/consuming-a-release.md#what-changed-under-you-holochain-06-to-07) document.
 
-**Validation is real now, and it will reject writes your old conductor accepted.** `happ-0.4.0-beta` shipped stub validators on most entities: they returned valid for nearly everything. `happ-0.5.0-beta.1` enforces required strings, temporal ordering, quantity bounds, the 21-identifier action vocabulary, collection bounds, and immutable-on-update fields. A write that a 0.4.0 conductor swallowed may now come back rejected, with a message naming the rule it broke. That is the intended behaviour, and it is the main reason to test an upgrade against real data rather than a fresh DHT.
+**Your own integrity zomes need the same port.** If you compose `hrea.dna` alongside DNAs of your own, every `validate_*` callback you wrote has to move to the 0.8 HDI signatures too. hREA's own integrity zome is the worked example.
+
+**The validation rules themselves did not change.** `happ-0.4.0-beta` already enforced required strings, temporal ordering, quantity bounds, the 21-identifier action vocabulary, collection bounds and immutable-on-update fields; the entity validators in the two tags are byte for byte identical, and the only difference in the integrity zome is the signature port above. A write a 0.4.0 conductor accepted is still accepted. What those rules are, with the message each one returns, is on [Validation rules](validation-rules.md).
 
 ## ValueFlows 1.0 additions
 
