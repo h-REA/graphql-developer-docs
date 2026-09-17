@@ -1,103 +1,112 @@
 # Integration Guide
 
-Now that you have a scaffolded Holochain app, you can integrate hREA.
+Now that you have a scaffolded Holochain 0.7 app, you can compose hREA into it.
 
-### Step 1: Ensure Basic DNA Structure
+## Step 1: check your DNA structure
 
-**⚠️ Important**: Before integrating hREA, your hApp must have at least one basic DNA with a zome to compile properly. If you followed the scaffolding process and chose to create an initial DNA, you should already have this.
+Your hApp needs at least one DNA with a zome before it will compile. If you chose an initial DNA during scaffolding you already have one.
 
-**Verify your DNA structure:**
 ```bash
-# Check that you have a basic DNA structure in your app's root directory
-ls dnas/
-# Should show at least one DNA directory (e.g., my_dna/)
-
-# Check that your DNA has at least one zome
-ls dnas/my_dna/zomes/
-# Should show integrity/ and coordinator/ directories with zomes
+ls dnas/                     # at least one DNA directory, e.g. my_dna/
+ls dnas/my_dna/zomes/        # integrity/ and coordinator/
 ```
 
-If you do not have this structure, you may need to run `hc scaffold dna` and `hc scaffold zome` from within the `nix develop` shell.
+Build it once before adding hREA, so that a later failure is unambiguous:
 
-**Build and test your basic hApp first:**
-It is a good idea to ensure your basic hApp compiles before adding hREA.
 ```bash
-# From your project root, build the happ
-npm run build:happ # Or bun run build:happ, etc.
-
-# If successful, you'll see your DNA file created
-ls dnas/my_dna/workdir/
-# Should show my_dna.dna
+npm run build:happ           # or bun / pnpm / yarn
+ls dnas/my_dna/workdir/      # my_dna.dna
 ```
-Once you have a working basic hApp structure, you can proceed with hREA integration.
 
-### Step 2: Add hREA DNA to Configuration
+## Step 2: choose your artifact
 
-Navigate to your scaffolded app directory and add the hREA role to your hApp configuration.
+`happ-0.5.0-beta.1` publishes two files, and they are not interchangeable:
 
-**Edit `workdir/happ.yaml`:**
-```yaml
+| File | Use it when |
+|------|-------------|
+| `hrea.dna` | you are composing hREA into your own hApp alongside your own DNAs. This is the case this guide covers. |
+| `hrea.happ` | you want to run hREA on its own, as a separate installed app. |
+
+Full detail, including how the two differ at runtime, is in **[Consuming a release](consuming-a-release.md)**.
+
+## Step 3: add the hREA role
+
+Add hREA as a second role in your hApp manifest.
+
+```yaml title="workdir/happ.yaml"
 manifest_version: "1"
 name: your_app_name
 roles:
-  - name: your_main_dna    # Your existing DNA role
+  - name: your_main_dna
     dna:
       bundled: ../dnas/your_dna/workdir/your_dna.dna
-    # ... other DNA configuration
-  # Add the hREA role
   - name: hrea
     dna:
       bundled: ./hrea.dna
 ```
 
-### Step 3: Download the hREA DNA
+The role name `hrea` is what you pass to the GraphQL adapter later. If you name it something else, pass that instead.
 
-You need to download the pre-compiled hREA DNA and place it in your `workdir`. A simple way to automate this is to add a script to your `package.json`.
+## Step 4: download the DNA
 
-**Edit your root `package.json`:**
-```json
+Fetch the prebuilt DNA into `workdir/`. Automating it in `package.json` keeps the version pinned in one place:
+
+```json title="package.json"
 {
   "scripts": {
     "postinstall": "npm run download-hrea",
-    // other scripts...
-    "download-hrea": "[ ! -f \"workdir/hrea.dna\" ] && curl -L --output workdir/hrea.dna https://github.com/h-REA/hREA/releases/download/happ-0.3.3-beta/hrea.dna; exit 0"
+    "download-hrea": "[ ! -f \"workdir/hrea.dna\" ] && curl -L --output workdir/hrea.dna https://github.com/h-REA/hREA/releases/download/happ-0.5.0-beta.1/hrea.dna; exit 0"
   }
 }
 ```
 
-Then run the installation command for your package manager, which will trigger the `postinstall` script.
+Then install, which triggers the download:
+
 ```bash
-npm install  # or your chosen package manager
+npm install
 ```
-This will download `hrea.dna` into your `workdir/` if it doesn't already exist.
 
-### Step 4: Add UI Dependencies
+!!! tip "Pin the tag, not `latest`"
 
-To communicate with the hREA DNA from your user interface, you will need to add a few dependencies to your UI's `package.json`.
+    The URL above names `happ-0.5.0-beta.1` explicitly. Pointing at a moving target means a conductor upgrade can arrive without you choosing it, and the 0.6 to 0.7 transition is exactly the kind that breaks a build.
 
-**Navigate to your UI directory (e.g., `cd ui`) and add these dependencies:**
+## Step 5: add the UI dependencies
+
+In your UI package (for example `ui/package.json`):
+
 ```json
 {
   "dependencies": {
     "@apollo/client": "^3.7.0",
-    "@valueflows/vf-graphql-holochain": "^0.0.4-alpha.4",
+    "@holochain/client": "^0.21.0",
+    "@valueflows/vf-graphql-holochain": "^0.700.0-rc.0",
     "graphql": "^16.6.0"
   }
 }
 ```
-*Note: The versions above are compatible with hREA v0.3.3. Check for the latest compatible versions if you are using a different release.*
 
-**Key dependencies explained:**
-- `@apollo/client`: A powerful GraphQL client that helps manage data fetching, caching, and state.
-- `@valueflows/vf-graphql-holochain`: Provides the tools to create a GraphQL schema from the running hREA DNA.
-- `graphql`: The core GraphQL library.
+- `@holochain/client` connects to the conductor. **0.21 is required** for a Holochain 0.7 conductor.
+- `@valueflows/vf-graphql-holochain` builds the GraphQL schema bound to the running hREA cell. Its version line tracks the Holochain line: `0.700.x` pairs with 0.7, `0.600.x` with 0.6.
+- `@apollo/client` is one GraphQL client among several. The adapter produces a schema; the client is your choice.
 
-Install the dependencies:
+!!! warning "If npm still shows `0.600.0-rc.0` as latest"
+
+    The 0.7 adapter may not be published yet. Check with `npm view @valueflows/vf-graphql-holochain versions`. If no `0.700.x` appears, build it from source in the meantime:
+
+    ```bash
+    git clone https://github.com/h-REA/hREA.git
+    cd hREA && nix develop
+    yarn install && yarn run build:graphql:adapter
+    # then depend on the built package by path, e.g.
+    # "@valueflows/vf-graphql-holochain": "file:../hREA/modules/vf-graphql-holochain/build"
+    ```
+
+Install them:
+
 ```bash
-cd ui
-npm install  # or your chosen package manager
+cd ui && npm install
 ```
 
-## Next Steps
+## Next steps
 
-With the backend configuration complete, you are now ready to set up the client-side integration and start interacting with hREA from your UI. The next section, **[Basic Usage with Lit](basic-usage-lit.md)**, provides a complete, framework-agnostic example of how to connect to Holochain and hREA. 
+**[Basic Usage](basic-usage-lit.md)** wires the client and issues a first query and mutation.

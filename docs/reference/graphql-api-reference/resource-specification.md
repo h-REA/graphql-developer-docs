@@ -16,6 +16,7 @@ Specification of a kind of resource. Could define a material item, service, digi
 | `defaultUnitOfResource` | `Unit` | The default unit used for the resource itself. |
 | `defaultUnitOfEffort` | `Unit` | The default unit used for use or work. |
 | `substitutable` | `Boolean` | Defines if any resource of this type can be freely substituted. |
+| `mediumOfExchange` | `Boolean` | Whether this specification is used as a medium of exchange. ValueFlows 1.0, new in `happ-0.5.0-beta.1`. |
 | `commitments` | `CommitmentConnection` | Commitments for this resource specification. |
 | `revision` | `ResourceSpecification` | Retrieves a specific revision of a resource specification. |
 | `meta` | `RecordMeta!` | Metadata about the record. |
