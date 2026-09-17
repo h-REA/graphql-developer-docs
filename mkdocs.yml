@@ -50,7 +50,9 @@ nav:
   - Welcome: README.md
   - Quick Start: quick-start.md
   - Integration Guide: integration-guide.md
-  - Basic Usage with Lit: basic-usage-lit.md
+  - Basic Usage: basic-usage-lit.md
+  - Consuming a Release: consuming-a-release.md
+  - Validation Rules: validation-rules.md
   - Reference:
     - GraphQL API Reference: reference/graphql-api-reference/README.md
     - Action: reference/graphql-api-reference/action.md
@@ -58,12 +60,11 @@ nav:
     - AgentRelationship: reference/graphql-api-reference/agent-relationship.md
     - AgentRelationshipRole: reference/graphql-api-reference/agent-relationship-role.md
     - Agreement: reference/graphql-api-reference/agreement.md
-    - Appreciation: reference/graphql-api-reference/appreciation.md
+    - AgreementBundle: reference/graphql-api-reference/agreement-bundle.md
     - Claim: reference/graphql-api-reference/claim.md
     - Commitment: reference/graphql-api-reference/commitment.md
     - EconomicEvent: reference/graphql-api-reference/economic-event.md
     - EconomicResource: reference/graphql-api-reference/economic-resource.md
-    - Geolocation: reference/graphql-api-reference/geolocation.md
     - Intent: reference/graphql-api-reference/intent.md
     - Measurement: reference/graphql-api-reference/measurement.md
     - Plan: reference/graphql-api-reference/plan.md
@@ -73,11 +74,11 @@ nav:
     - Proposal: reference/graphql-api-reference/proposal.md
     - Recipe: reference/graphql-api-reference/recipe.md
     - Resource Specification: reference/graphql-api-reference/resource-specification.md
-    - Scenario: reference/graphql-api-reference/scenario.md
+    - SpatialThing: reference/graphql-api-reference/spatial-thing.md
     - Scalars: reference/graphql-api-reference/scalars.md
     - Utility Types: reference/graphql-api-reference/utility-types.md
   - Advanced Topics:
     - Thinking & Expressing ValueFlows: thinking-and-expressing-valueflows.md
-    - Using myAgent: using-myagent.md
-    - Configuring Enabled Modules: configuring-enabled-modules.md
+    - Identifying the Current Agent: using-myagent.md
+    - Enabled Modules: configuring-enabled-modules.md
   - Ship to Production: ship-to-production.md

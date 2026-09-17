@@ -27,6 +27,7 @@ A planned economic flow that has been promised by an agent to another agent.
 | `inScopeOf` | `[AccountingScope!]` | Grouping around something to create a boundary or context, used for documenting, accounting, planning. |
 | `involvedAgents` | `[Agent!]` | The agents involved in this commitment. |
 | `clauseOf` | `Agreement` | This commitment is part of the exchange agreement. |
+| `reciprocalClauseOf` | `Agreement` | The agreement this commitment is a reciprocal clause of. ValueFlows 1.0, new in `happ-0.5.0-beta.1`. |
 | `resourceInventoriedAs` | `EconomicResource` | Exact economic resource involved in the commitment. |
 | `fulfilledBy` | `[EconomicEvent!]` | The economic events that fulfill this commitment. |
 | `independentDemandOf` | `Plan` | Represents a desired deliverable expected from this plan. |

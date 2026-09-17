@@ -7,7 +7,7 @@ description: >-
 
 # Thinking & Expressing ValueFlows
 
-If you have gone through the [Quick Start - API Explorer](quick-start.md) setup, you will be seeing something like the following screen.
+If you have gone through the [Quick Start](quick-start.md) setup, you will be seeing something like the following screen.
 
 ![a web browser with 3 panels lined up horizontally, the left has code in it, the middle is empty, and right has some developer documentation](https://i.imgur.com/14flkez.png)
 
@@ -100,7 +100,7 @@ Out of all of them, only 3 are marked as required (`!`), we may find that decept
 
 The 3 marked as required are: `action`, `provider`, and `receiver`
 
-`provider` and `receiver` say that they expect the `ID` of an `Agent`. This should be something like the `id` field of the response to our original `myAgent` query, but ideally has two separate agents given as provider and receiver: ourselves, and one other.
+`provider` and `receiver` say that they expect the `ID` of an `Agent`. That is the `id` field of an agent record, ideally two different ones: ourselves, and one other.
 
 `action` says it expects the `ID` of an `Action`. We don't know what an `Action` is. We will have to find out.
 
@@ -122,26 +122,24 @@ We see that the required fields are already added in as empty values.
 
 Because we're going to need valid agent `ID`s for `provider` and `receiver` we can plug in our own agent ID to both. In the future we may want to have another agent's `ID` to add as one or the other, to represent a transfer.
 
-Use the following query in order to retrieve your own agent ID.
-
-> **⚠️ Warning:** This will ONLY work if you have gone through the first two steps of the [Quick Start - API Explorer](quick-start.md) tutorial, or otherwise called `associateMyAgent`
+List the agents on the DHT to find an ID to use:
 
 ```graphql
 {
-  myAgent {
-    id
-    name
+  agents {
+    edges {
+      node {
+        id
+        name
+      }
+    }
   }
 }
 ```
 
-Running it we get something like this:
+An agent ID is a long string of two hashes joined by a colon, something like `uhCAkMrhQvJznARbU6HGnDrdMk-eMbEDE7B8GnBDA66wCv0R4UX6f:uhC0k646zXkQKNvC0vhEkQxW-iGgoILG4-QtrdUyDNdzoCbRkOMXO`.
 
-![](https://i.imgur.com/NbkK737.png)
-
-We just asked the API the question: "Who am I?"
-
-We find out we are the agent identified by this very long string value : `uhCAkMrhQvJznARbU6HGnDrdMk-eMbEDE7B8GnBDA66wCv0R4UX6f:uhC0k646zXkQKNvC0vhEkQxW-iGgoILG4-QtrdUyDNdzoCbRkOMXO`
+> **Note:** an earlier version of this page used `myAgent` to ask "who am I?". That query is declared in the ValueFlows schema but has no resolver in `happ-0.5.0-beta.1`, and `associateMyAgent` does not exist at all. See [Identifying the current agent](using-myagent.md). Until association lands, create an agent with `createPerson` and keep the returned `id` yourself.
 
 The system represents an ID as one whole string value containing two parts, with that colon separator in the middle. This is important. Throughout all that comes next, we need to reference agent IDs, like this one.
 

@@ -1,5 +1,10 @@
 # Agent
 
+!!! note "`myAgent` is declared but has no resolver"
+
+    The base ValueFlows schema declares a `myAgent` query and it is present in the built schema, but the adapter does not resolve it, and `associateMyAgent` is not in the schema at all. See [Identifying the current agent](../../using-myagent.md) for what to do instead.
+
+
 A person or group or organization with economic agency.
 
 ## Interface: `Agent`
