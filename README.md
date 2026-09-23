@@ -14,7 +14,7 @@ If you edit a page and nothing changes on the site, check the Actions tab first.
 ## Working on the docs locally
 
 ```bash
-pip install mkdocs-material
+pip install -r requirements.txt   # the same toolchain CI installs
 mkdocs serve             # live preview on http://127.0.0.1:8000
 mkdocs build --strict    # the same check CI runs
 ```
