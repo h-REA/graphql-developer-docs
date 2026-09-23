@@ -1,0 +1,83 @@
+site_name: hREA Developer Docs
+site_url: https://docs.hrea.io
+site_description: Documentation for the hREA GraphQL APIs
+repo_url: https://github.com/h-REA/graphql-developer-docs
+repo_name: h-REA/graphql-developer-docs
+
+docs_dir: docs
+theme:
+  name: material
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: teal
+      accent: teal
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: teal
+      accent: teal
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+
+plugins:
+  - search
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - tables
+  - toc:
+      permalink: true
+
+nav:
+  - Welcome: README.md
+  - Quick Start: quick-start.md
+  - Integration Guide: integration-guide.md
+  - Basic Usage with Lit: basic-usage-lit.md
+  - Reference:
+    - GraphQL API Reference: reference/graphql-api-reference/README.md
+    - Action: reference/graphql-api-reference/action.md
+    - Agent: reference/graphql-api-reference/agent.md
+    - AgentRelationship: reference/graphql-api-reference/agent-relationship.md
+    - AgentRelationshipRole: reference/graphql-api-reference/agent-relationship-role.md
+    - Agreement: reference/graphql-api-reference/agreement.md
+    - Appreciation: reference/graphql-api-reference/appreciation.md
+    - Claim: reference/graphql-api-reference/claim.md
+    - Commitment: reference/graphql-api-reference/commitment.md
+    - EconomicEvent: reference/graphql-api-reference/economic-event.md
+    - EconomicResource: reference/graphql-api-reference/economic-resource.md
+    - Geolocation: reference/graphql-api-reference/geolocation.md
+    - Intent: reference/graphql-api-reference/intent.md
+    - Measurement: reference/graphql-api-reference/measurement.md
+    - Plan: reference/graphql-api-reference/plan.md
+    - Process: reference/graphql-api-reference/process.md
+    - Process Specification: reference/graphql-api-reference/process-specification.md
+    - Product Batch: reference/graphql-api-reference/product-batch.md
+    - Proposal: reference/graphql-api-reference/proposal.md
+    - Recipe: reference/graphql-api-reference/recipe.md
+    - Resource Specification: reference/graphql-api-reference/resource-specification.md
+    - Scenario: reference/graphql-api-reference/scenario.md
+    - Scalars: reference/graphql-api-reference/scalars.md
+    - Utility Types: reference/graphql-api-reference/utility-types.md
+  - Advanced Topics:
+    - Thinking & Expressing ValueFlows: thinking-and-expressing-valueflows.md
+    - Using myAgent: using-myagent.md
+    - Configuring Enabled Modules: configuring-enabled-modules.md
+  - Ship to Production: ship-to-production.md

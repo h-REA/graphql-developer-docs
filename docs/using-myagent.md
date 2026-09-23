@@ -6,7 +6,7 @@ description: How to conceptualize and utilize agency and identity with Holochain
 
 ## Background
 
-There are some basic assumptions about Holochain that we need to establish in order to understand hREA and how it works.&#x20;
+There are some basic assumptions about Holochain that we need to establish in order to understand hREA and how it works.
 
 Rather than utilizing an email address and password combination, Holochain utilizes a set of cryptographic "private keys" stored on the end users local file system to represent your personal "account". There is no centralized database of accounts, nor are there 'forgot password' by email reset mechanisms. All of that is gone.
 
@@ -14,17 +14,17 @@ Depending on how the end user is accessing Holochain, their keys may have been g
 
 Conceptually, every request to hREA occurs within the context of a specific `AgentPubKey`, or identity. It is known implicitly within the internal hApp context, and that is why it DOES NOT need to passed over API requests, as one might with an API token in more typical web architectures.
 
-**In short, user identity is known implicitly during every API request, and doesn't need to be provided in the request as a value.**&#x20;
+**In short, user identity is known implicitly during every API request, and doesn't need to be provided in the request as a value.**
 
 There are a set of special GraphQL API endpoints provided for this common use case of providing the "current user" with information about themselves. Let's explore this.
 
 ## R-E-Agent
 
-In the Resource-Event-Agent model, there is a primitive known as "Agent". In `hREA` there are multiple sub-types of "Agent", but they are all "Agents". Two such examples are "Person" and "Organization". All Resources and Events likely contain references to an "Agent".&#x20;
+In the Resource-Event-Agent model, there is a primitive known as "Agent". In `hREA` there are multiple sub-types of "Agent", but they are all "Agents". Two such examples are "Person" and "Organization". All Resources and Events likely contain references to an "Agent".
 
-"Agent"s are explicitly recorded in the system, and are different than the notion of devices which hREA running and have joined the network of peers. Any given device **may OR may not** be associated with one such "Agent" record.&#x20;
+"Agent"s are explicitly recorded in the system, and are different than the notion of devices which hREA running and have joined the network of peers. Any given device **may OR may not** be associated with one such "Agent" record.
 
-Therefore there is a need for three specific GraphQL endpoints related to this:&#x20;
+Therefore there is a need for three specific GraphQL endpoints related to this:
 
 1. If the current user/device is associated with an Agent, return it. This is `myAgent`
 2. Allow for the creation of new Agent records. This is `createPerson` or `createOrganization`
@@ -32,7 +32,7 @@ Therefore there is a need for three specific GraphQL endpoints related to this:&
 
 ### myAgent
 
-In a typical application flow, we would see `myAgent` called to check if the active user has associated their device with an Agent. It will return an error if none has been.&#x20;
+In a typical application flow, we would see `myAgent` called to check if the active user has associated their device with an Agent. It will return an error if none has been.
 
 An example query
 
@@ -70,7 +70,7 @@ An example error, which just tells the developer no Agent has been associated to
 
 ### createPerson
 
-From a given device, `createPerson` may be called as many times as desired, and does not imply that the created Person will be associated with the currrent device, other than in its metadata history.&#x20;
+From a given device, `createPerson` may be called as many times as desired, and does not imply that the created Person will be associated with the currrent device, other than in its metadata history.
 
 Here is example GraphQL:
 
@@ -112,6 +112,6 @@ mutation AssociateMyAgent {
 }
 ```
 
-The value can be any valid Agent ID, such as the value `data.createPerson.agent.id` from the example `createPerson` response.&#x20;
+The value can be any valid Agent ID, such as the value `data.createPerson.agent.id` from the example `createPerson` response.
 
 This simply returns `true` if the request was successful. Now, `myAgent` can be called again, and will return data for that Agent, instead of an error!

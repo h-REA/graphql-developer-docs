@@ -1,10 +1,3 @@
----
-description: >-
-  This guide is intended as a way to help you discover and familiarize with the
-  APIs, as opposed to integrating it into your project. For that check out the
-  "Quick Start - Integrate" guide.
----
-
 # Quick Start: hREA Integration
 
 A step-by-step guide to integrating **hREA v0.3.3** into your scaffolded Holochain application.

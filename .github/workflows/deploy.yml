@@ -1,0 +1,70 @@
+name: Docs
+
+# `main` is the only branch that publishes. The site is built with MkDocs from
+# `docs/` and pushed to `gh-pages`, which is what GitHub Pages serves at
+# docs.hrea.io, so nothing here depends on a Pages setting.
+#
+# Pull requests build the site with `--strict` and stop there: a broken nav
+# entry or a dead internal link fails the check instead of reaching the site.
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_dispatch:
+
+# Read-only by default. Only `deploy` pushes to gh-pages, so only it gets write.
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+          cache: pip
+
+      - name: Install MkDocs and dependencies
+        run: pip install -r requirements.txt
+
+      # --strict turns warnings into errors: a nav entry pointing at a missing
+      # file, or a markdown link that resolves to nothing, fails here.
+      - name: Build the site
+        run: mkdocs build --strict
+
+  deploy:
+    name: Deploy
+    needs: build
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+          cache: pip
+
+      - name: Install MkDocs and dependencies
+        run: pip install -r requirements.txt
+
+      - name: Configure git credentials
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Deploy to GitHub Pages
+        run: mkdocs gh-deploy --force

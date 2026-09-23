@@ -41,7 +41,7 @@ A **Process** is an activity that transforms input Economic Resources (sent in b
 
 In this example "Cook Salsa Today" is a **Process**, "consumed 6 lb Diced Tomato lot 234" is an **Economic Event** that refers to the pre-existing "Diced Tomato lot 234" **Economic Resource** and "produced 6 lb Salsa Bulk lot 456" is an **Economic Event** that results in the new **Economic Resource** "Salsa Bulk lot 456".
 
-Below is a more abstract version, which connects many Events, Resources, and Processes.&#x20;
+Below is a more abstract version, which connects many Events, Resources, and Processes.
 
 ![ source](https://i.imgur.com/7jP14nr.png)
 
@@ -122,11 +122,9 @@ We see that the required fields are already added in as empty values.
 
 Because we're going to need valid agent `ID`s for `provider` and `receiver` we can plug in our own agent ID to both. In the future we may want to have another agent's `ID` to add as one or the other, to represent a transfer.
 
-Use the following query in order to retrieve your own agent ID.&#x20;
+Use the following query in order to retrieve your own agent ID.
 
-{% hint style="warning" %}
-This will ONLY work if you have gone through the first two steps of the [Quick Start - API Explorer](quick-start.md) tutorial, or otherwise called `associateMyAgent`
-{% endhint %}
+> **⚠️ Warning:** This will ONLY work if you have gone through the first two steps of the [Quick Start - API Explorer](quick-start.md) tutorial, or otherwise called `associateMyAgent`
 
 ```graphql
 {
