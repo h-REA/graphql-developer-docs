@@ -1,5 +1,10 @@
 # Product Batch
 
+!!! warning "Type only in `happ-0.5.0-beta.1`"
+
+    `ProductBatch` exists as a type in the built schema, but there are no `productBatch` queries and no create, update or delete mutations for it. Nothing in this release produces or reads a batch record.
+
+
 A `ProductBatch` represents a lot or batch, defining a resource produced at the same time and in the same way. This is a standard concept in enterprise resource management and supply chain.
 
 ---

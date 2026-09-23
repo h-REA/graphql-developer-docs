@@ -1,163 +1,83 @@
 # Claim
 
-A `Claim` is a request for a future economic event in reciprocity for an economic event that has already occurred. For example, a claim for payment for goods that have been delivered.
+A claim for a future economic event, triggered by an economic event that already happened. ValueFlows 1.0, and implemented for the first time in `happ-0.5.0-beta.1`.
 
----
+!!! warning "This page changed in `happ-0.5.0-beta.1`"
 
-## Types
+    Earlier versions of this reference described a `Settlement` type with its own queries and mutations. There is no `Settlement` type in the schema this release builds. Settlement is expressed on the two records that participate in it: `EconomicEvent.settles` points at the claim being settled, and `Claim.settledBy` is the reverse.
 
-### `Claim`
-Represents a claim for a future economic event.
+## Fields
 
 | Field | Type | Description |
 | ----- | ---- | ----------- |
-| `id` | `ID!` | Unique identifier for the claim. |
-| `revisionId` | `ID!` | The identifier of the last revision of this claim. |
-| `action` | `Action!` | The action associated with the claim (e.g., consume, produce). |
-| `resourceClassifiedAs`| `[URI!]`| References to a taxonomy for categorization. |
-| `resourceQuantity`| `Measure` | The amount and unit of the economic resource. |
-| `effortQuantity` | `Measure` | The amount and unit of the work or use action. |
-| `triggeredBy` | `EconomicEvent!` | The economic event that triggered this claim. |
+| `id` | `ID!` | A unique identifier for the claim. |
+| `revisionId` | `ID!` | The identifier of the last revision of this record. |
+| `action` | `Action!` | Relates the claim to the verb of the expected event, such as `transfer`. |
+| `resourceClassifiedAs` | `[URI!]` | References a concept in a common taxonomy for categorisation. |
+| `resourceQuantity` | `Measure` | The amount and unit of the expected resource. |
+| `effortQuantity` | `Measure` | The amount and unit of the expected work or use. |
+| `triggeredBy` | `EconomicEvent!` | The economic event that gave rise to this claim. Required. |
 | `due` | `DateTime` | The date the claim is expected to be settled. |
-| `created` | `DateTime` | The date the claim was created. |
-| `finished` | `Boolean` | Indicates if the claim is complete. |
+| `created` | `DateTime` | The date and time the claim was created. |
+| `finished` | `Boolean` | Whether the claim is considered complete. |
 | `note` | `String` | A textual description or comment. |
-| `agreedIn` | `URI` | A reference to an agreement governing this claim. |
-| `settledBy` | `SettlementConnection` | The settlements that have been made for this claim. |
-
-### `Settlement`
-Represents the settlement of a claim.
-
-| Field | Type | Description |
-| ----- | ---- | ----------- |
-| `id` | `ID!` | Unique identifier for the settlement. |
-| `revisionId` | `ID!` | The identifier of the last revision of this settlement. |
-| `settles` | `Claim!` | The claim that is being settled. |
-| `settledBy` | `EconomicEvent!` | The economic event that settles the claim. |
-| `resourceQuantity`| `Measure` | The amount and unit of the economic resource. |
-| `effortQuantity` | `Measure` | The amount and unit of the work or use action. |
-| `note` | `String` | A textual description or comment. |
-
----
+| `agreedIn` | `URI` | Reference to an agreement, on chain or off. |
+| `settledBy` | `[EconomicEvent!]` | The economic events that settle this claim. The reverse of `EconomicEvent.settles`. VF 1.0. |
 
 ## Queries
 
 ### `claim(id: ID!)`
-Retrieves a single `Claim` by its `id`.
+Retrieves a single `Claim`.
 
 ### `claims(first: Int, after: String, last: Int, before: String)`
-Retrieves a paginated list of all `Claim` records.
-
-### `settlement(id: ID!)`
-Retrieves a single `Settlement` by its `id`.
-
-### `settlements(first: Int, after: String, last: Int, before: String)`
-Retrieves a paginated list of all `Settlement` records.
-
----
+Retrieves a paginated list of claims.
 
 ## Mutations
 
 ### `createClaim(claim: ClaimCreateParams!)`
-Creates a new `Claim`.
-
 ### `updateClaim(claim: ClaimUpdateParams!)`
-Updates an existing `Claim`.
-
 ### `deleteClaim(revisionId: ID!)`
-Deletes a `Claim`.
-
-### `createSettlement(settlement: SettlementCreateParams!)`
-Creates a new `Settlement`.
-
-### `updateSettlement(settlement: SettlementUpdateParams!)`
-Updates an existing `Settlement`.
-
-### `deleteSettlement(revisionId: ID!)`
-Deletes a `Settlement`.
 
 ---
 
-## Related Types
+## Related types
 
 ### Input: `ClaimCreateParams`
+
 | Field | Type | Description |
 | ----- | ---- | ----------- |
-| `action` | `ID!` | The ID of the `Action` for the claim. |
-| `resourceClassifiedAs`| `[URI!]`| References to a taxonomy for categorization. |
-| `resourceQuantity`| `IMeasure` | The amount and unit of the economic resource. |
-| `effortQuantity` | `IMeasure` | The amount and unit of the work or use action. |
-| `due` | `DateTime` | The date the claim is expected to be settled. |
-| `triggeredBy` | `ID!` | The ID of the `EconomicEvent` that triggered this claim. |
-| `created` | `DateTime` | The date the claim was created. |
-| `finished` | `Boolean` | Indicates if the claim is complete. |
-| `note` | `String` | A textual description or comment. |
-| `agreedIn` | `URI` | A reference to an agreement governing this claim. |
+| `action` | `ID!` | The action identifier, for example `transfer`. Required. |
+| `triggeredBy` | `ID!` | The economic event that triggered the claim. Required. |
+| `resourceClassifiedAs` | `[URI!]` | |
+| `resourceQuantity` | `IMeasure` | |
+| `effortQuantity` | `IMeasure` | |
+| `due` | `DateTime` | |
+| `created` | `DateTime` | |
+| `finished` | `Boolean` | |
+| `note` | `String` | |
+| `agreedIn` | `URI` | |
 
 ### Input: `ClaimUpdateParams`
-| Field | Type | Description |
-| ----- | ---- | ----------- |
-| `revisionId` | `ID!` | The revision ID of the claim to update. |
-| `action` | `ID` | The ID of the `Action` for the claim. |
-| `resourceClassifiedAs`| `[URI!]`| References to a taxonomy for categorization. |
-| `resourceQuantity`| `IMeasure` | The amount and unit of the economic resource. |
-| `effortQuantity` | `IMeasure` | The amount and unit of the work or use action. |
-| `due` | `DateTime` | The date the claim is expected to be settled. |
-| `triggeredBy` | `ID` | The ID of the `EconomicEvent` that triggered this claim. |
-| `created` | `DateTime` | The date the claim was created. |
-| `finished` | `Boolean` | Indicates if the claim is complete. |
-| `note` | `String` | A textual description or comment. |
-| `agreedIn` | `URI` | A reference to an agreement governing this claim. |
+Takes a `revisionId` plus the same fields as the create params.
 
 ### Response: `ClaimResponse`
-| Field | Type | Description |
-| ----- | ---- | ----------- |
-| `claim` | `Claim!` | The `Claim` that was created or updated. |
+Wraps the record under `claim`.
 
-### Input: `SettlementCreateParams`
-| Field | Type | Description |
-| ----- | ---- | ----------- |
-| `settles` | `ID!` | The ID of the `Claim` being settled. |
-| `settledBy` | `ID!` | The ID of the `EconomicEvent` that settles the claim. |
-| `resourceQuantity`| `IMeasure` | The amount and unit of the economic resource. |
-| `effortQuantity` | `IMeasure` | The amount and unit of the work or use action. |
-| `note` | `String` | A textual description or comment. |
+## Settling a claim
 
-### Input: `SettlementUpdateParams`
-| Field | Type | Description |
-| ----- | ---- | ----------- |
-| `revisionId` | `ID!` | The revision ID of the settlement to update. |
-| `settles` | `ID` | The ID of the `Claim` being settled. |
-| `settledBy` | `ID` | The ID of the `EconomicEvent` that settles the claim. |
-| `resourceQuantity`| `IMeasure` | The amount and unit of the economic resource. |
-| `effortQuantity` | `IMeasure` | The amount and unit of the work or use action. |
-| `note` | `String` | A textual description or comment. |
+Settlement is recorded on the economic event, not on a separate record:
 
-### Response: `SettlementResponse`
-| Field | Type | Description |
-| ----- | ---- | ----------- |
-| `settlement` | `Settlement!` | The `Settlement` that was created or updated. |
+```graphql
+mutation {
+  createEconomicEvent(event: {
+    action: "transfer"
+    provider: "..."
+    receiver: "..."
+    settles: "<claim id>"
+  }) {
+    economicEvent { id settles { id } }
+  }
+}
+```
 
-### Connection: `ClaimConnection`
-| Field | Type | Description |
-| ----- | ---- | ----------- |
-| `edges` | `[ClaimEdge!]!` | A list of claim edges. |
-| `pageInfo` | `PageInfo!` | Information to aid in pagination. |
-
-### Edge: `ClaimEdge`
-| Field | Type | Description |
-| ----- | ---- | ----------- |
-| `node` | `Claim!` | The `Claim` record. |
-| `cursor` | `String!` | A cursor for use in pagination. |
-
-### Connection: `SettlementConnection`
-| Field | Type | Description |
-| ----- | ---- | ----------- |
-| `edges` | `[SettlementEdge!]!` | A list of settlement edges. |
-| `pageInfo` | `PageInfo!` | Information to aid in pagination. |
-
-### Edge: `SettlementEdge`
-| Field | Type | Description |
-| ----- | ---- | ----------- |
-| `node` | `Settlement!` | The `Settlement` record. |
-| `cursor` | `String!` | A cursor for use in pagination. | 
+Reading it back from the claim uses `settledBy`.

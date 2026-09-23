@@ -19,6 +19,7 @@ Published requests or offers, sometimes with what is expected in return.
 | `proposedTo` | `[Agent!]!` | Agents to whom the proposal is proposed. |
 | `inScopeOf` | `[AccountingScope!]` | The accounting scope this proposal falls within. |
 | `revision` | `Proposal` | Retrieves a specific revision of a proposal. |
+| `purpose` | `ProposalPurpose` | Whether this proposal is published as an offer or a request. ValueFlows 1.0, new in `happ-0.5.0-beta.1`. |
 | `meta` | `RecordMeta!` | Metadata about the record. |
 
 ## Queries
@@ -30,10 +31,14 @@ Retrieves a single `Proposal` by its `id`.
 Retrieves a paginated list of all `Proposal`s.
 
 ### `offers(first: Int, after: String, last: Int, before: String)`
-List all proposals that are being listed as offers.
+List all proposals whose `purpose` is `offer`. An hREA extension, not base ValueFlows: it partitions on `Proposal.purpose`.
 
 ### `requests(first: Int, after: String, last: Int, before: String)`
-List all proposals that are being listed as requests.
+List all proposals whose `purpose` is `request`.
+
+## Enum: `ProposalPurpose`
+
+`offer` or `request`. Set it on create or update; leaving it unset leaves the proposal in neither partition.
 
 ## Mutations
 
@@ -63,6 +68,7 @@ Deletes a `Proposal`.
 | `reciprocal` | `[ID!]` | IDs of the reciprocal intents. |
 | `proposedTo` | `[ID!]` | IDs of the agents to propose to. |
 | `inScopeOf` | `[ID!]` | IDs of the accounting scopes. |
+| `purpose` | `ProposalPurpose` | `offer` or `request`. VF 1.0. |
 
 ### Input: `ProposalUpdateParams`
 Requires a `revisionId` and allows updating the same fields as `ProposalCreateParams`.

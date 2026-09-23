@@ -1,117 +1,41 @@
----
-description: How to conceptualize and utilize agency and identity with Holochain and hREA
----
+# Identifying the current agent
 
-# Using "myAgent"
+!!! warning "`myAgent` is declared but not implemented in `happ-0.5.0-beta.1`"
 
-## Background
+    The base ValueFlows schema declares a `myAgent` query, and `createHolochainSchema` therefore includes it: an operation using it will parse and validate. It has **no resolver** in this release, and neither does `associateMyAgent`, which is not in the schema at all.
 
-There are some basic assumptions about Holochain that we need to establish in order to understand hREA and how it works.
+    This page used to describe that association flow. It is kept at its old address because the address is linked from elsewhere, but the flow it described does not exist today.
 
-Rather than utilizing an email address and password combination, Holochain utilizes a set of cryptographic "private keys" stored on the end users local file system to represent your personal "account". There is no centralized database of accounts, nor are there 'forgot password' by email reset mechanisms. All of that is gone.
+## What the pattern was meant to be
 
-Depending on how the end user is accessing Holochain, their keys may have been generated at different points in their registration process. Suffice to say, at some point the user needs to generate a private key / public key pair with Holochain in order to run hREA, and that hREA will be installed under the agency of one (1) specific private/public key pair. The public key half of this combination may appear within the API labeled as an `agentPubKey` value.
+ValueFlows separates the cryptographic identity of a device from the economic identity of an agent. A person may hold several keys; an organization is an agent that no single key is. The intended shape was three operations: ask which agent this key is associated with (`myAgent`), create agent records (`createPerson`, `createOrganization`), and bind a key to an agent record (`associateMyAgent`).
 
-Conceptually, every request to hREA occurs within the context of a specific `AgentPubKey`, or identity. It is known implicitly within the internal hApp context, and that is why it DOES NOT need to passed over API requests, as one might with an API token in more typical web architectures.
+The first and third are unimplemented. The second works.
 
-**In short, user identity is known implicitly during every API request, and doesn't need to be provided in the request as a value.**
+## What to do instead today
 
-There are a set of special GraphQL API endpoints provided for this common use case of providing the "current user" with information about themselves. Let's explore this.
+Create the agent record, then keep its `id` yourself. The `id` is stable for the life of the record, so storing it locally, or deriving it from your own application's user record, is enough for a single-user client:
 
-## R-E-Agent
-
-In the Resource-Event-Agent model, there is a primitive known as "Agent". In `hREA` there are multiple sub-types of "Agent", but they are all "Agents". Two such examples are "Person" and "Organization". All Resources and Events likely contain references to an "Agent".
-
-"Agent"s are explicitly recorded in the system, and are different than the notion of devices which hREA running and have joined the network of peers. Any given device **may OR may not** be associated with one such "Agent" record.
-
-Therefore there is a need for three specific GraphQL endpoints related to this:
-
-1. If the current user/device is associated with an Agent, return it. This is `myAgent`
-2. Allow for the creation of new Agent records. This is `createPerson` or `createOrganization`
-3. Allow an Agent record to become associated with a user/device, represented by an AgentPubKey. This is `associateMyAgent`
-
-### myAgent
-
-In a typical application flow, we would see `myAgent` called to check if the active user has associated their device with an Agent. It will return an error if none has been.
-
-An example query
-
-```graphql
-query MyQuery {
-  myAgent {
-    id
-  }
-}
-```
-
-An example error, which just tells the developer no Agent has been associated to this identity
-
-```graphql
-{
-  "errors": [
-    {
-      "message": "Unexpected error value: { type: \"error\", data: { type: \"ribosome_error\", data: \"Wasm error while working with Ribosome: Guest(\\\"No Agent data is associated with the currently authenticated user\\\")\" } }",
-      "locations": [
-        {
-          "line": 2,
-          "column": 3
-        }
-      ],
-      "path": [
-        "myAgent"
-      ]
-    }
-  ],
-  "data": {
-    "myAgent": null
-  }
-}
-```
-
-### createPerson
-
-From a given device, `createPerson` may be called as many times as desired, and does not imply that the created Person will be associated with the currrent device, other than in its metadata history.
-
-Here is example GraphQL:
-
-```graphql
-mutation CreatePerson {
-  createPerson(person: { name: "Luke Skywalker" }) {
-    agent {
-      id
-      name
-    }
-  }
-}
-```
-
-Here is an example response to that:
-
-```graphql
-{
-  "data": {
-    "createPerson": {
-      "agent": {
-        "id": "uhCEkhEPmOsgnVv1HCno3T5XbNPl3g8xOf3HxWUGhykVwjGyHDRGH:uhC0kyzFVhHjoqf2ZvsH6FmNQ16DC4EtjD1OIsFbNwJGMBZyVGV3w",
-        "name": "Luke Skywalker"
+```typescript
+const { data } = await client.mutate({
+  mutation: gql`
+    mutation ($person: AgentCreateParams!) {
+      createPerson(person: $person) {
+        agent { id revisionId name }
       }
     }
-  }
-}
+  `,
+  variables: { person: { name: 'Ada Lovelace' } },
+})
+
+const myAgentId = data.createPerson.agent.id
+// persist myAgentId in your own storage
 ```
 
-The value to pay close attention to there is `data.createPerson.agent.id`. That value is the "Agent ID" and we need to reference it in the following example.
+From then on, pass `myAgentId` anywhere an operation takes a `provider`, `receiver`, `proposedTo` or similar agent reference.
 
-### associateMyAgent
+`agents`, `people` and `organizations` list what exists on the DHT, so an application that needs to find an agent again can query and match on `name`. That is weaker than a real association, since names are not unique, which is exactly why the association operations are worth having.
 
-So that `myAgent` will return a real Agent next time, we need to call `associateMyAgent`. Here is an example:
+## Following the work
 
-```graphql
-mutation AssociateMyAgent {
-  associateMyAgent(agentId: "uhCEkhEPmOsgnVv1HCno3T5XbNPl3g8xOf3HxWUGhykVwjGyHDRGH:uhC0kyzFVhHjoqf2ZvsH6FmNQ16DC4EtjD1OIsFbNwJGMBZyVGV3w")
-}
-```
-
-The value can be any valid Agent ID, such as the value `data.createPerson.agent.id` from the example `createPerson` response.
-
-This simply returns `true` if the request was successful. Now, `myAgent` can be called again, and will return data for that Agent, instead of an error!
+Agent association is tracked in the [hREA repository](https://github.com/h-REA/hREA/issues). If your application needs it, saying so on an issue is the most useful thing you can do.

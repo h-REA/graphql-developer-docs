@@ -1,54 +1,49 @@
-# Quick Start: hREA Integration
+# Quick Start
 
-A step-by-step guide to integrating **hREA v0.3.3** into your scaffolded Holochain application.
+A step-by-step guide to integrating **hREA `happ-0.5.0-beta.1`** into your scaffolded Holochain application.
 
-> **⚠️ Version Compatibility Notice**:
-> - **hREA v0.3.3** is compatible with **Holochain v0.5.x**
->
-> This guide is specifically designed for **hREA version 0.3.3**. Different versions may require different integration steps.
+!!! warning "Version compatibility"
 
+    `happ-0.5.0-beta.1` runs on **Holochain 0.7.x** and needs `@holochain/client` **^0.21.0**. The client and the conductor move together: 0.20 speaks to a 0.6 conductor, 0.21 to a 0.7 one, and mixing them does not fail with a message that tells you so.
+
+    Older releases target older lines: `happ-0.4.0-beta` on Holochain 0.6, `happ-0.3.x-beta` on 0.5. This guide is for 0.5.0-beta.
 
 ## Prerequisites
 
 This guide assumes you are starting a new Holochain application from scratch using the official scaffolding tool.
 
-### 1. Install Holochain Development Environment
+### 1. Install the Holochain development environment
 
-Follow the official Holochain installation guide to set up your development environment. This is most easily done using Nix Flakes.
+Follow the official installation guide, most easily through Nix flakes:
 
-**[Installing Holochain Development Environment](https://developer.holochain.org/get-started/#2-installing-holochain-development-environment)**
+**[Installing the Holochain development environment](https://developer.holochain.org/get-started/#2-installing-holochain-development-environment)**
 
-This process will install:
-- The Nix package manager
-- The `holochain` and `hc` command-line tools
-- All other required dependencies for Holochain development
+That gives you the Nix package manager, the `holochain` and `hc` command line tools, and the rest of the toolchain.
 
-### 2. Create a Scaffolded Holochain Web App
+### 2. Scaffold a Holochain web app
 
-Once your development environment is installed, create a new Holochain web application using the scaffolding tool. This will generate a project with a basic DNA and a starter UI.
+Create the application with the scaffolding tool from the **0.7 holonix line**. This matters: at the time of writing, the official get-started guide still pins `main-0.6`, and a 0.6 app cannot load this hREA release. hREA's own `flake.nix` tracks `holonix?ref=main-0.7`, so use the same:
 
 ```bash
-# Navigate to your projects directory
 cd ~/your-projects-directory
-
-# Create a scaffolded Holochain web app
-nix run "github:holochain/holochain?rev=0a9b89382186834273c3734e5659f7c009139265#hc-scaffold" web-app
+nix run "github:holochain/holonix?ref=main-0.7#hc-scaffold" -- web-app
 ```
 
-**During the interactive scaffolding process, you will be asked for:**
-- **UI Framework**: Choose your preferred frontend framework (the rest of this guide will use framework-agnostic examples that can be adapted to any UI).
-- **App name**: Your preferred name (e.g., `my-hrea-app`).
-- **Holonix environment**: **Yes** (recommended for reproducibility).
-- **Package manager**: Your preference (npm, bun, pnpm, or yarn).
-- **Initial DNA**: **Yes**.
-- **DNA name**: Your preferred name (e.g., `my_dna`).
+During the interactive process you will be asked for:
 
-This will create a new directory with a complete project structure, ready for you to build on.
+- **UI framework**: your preference. The examples in this guide are framework agnostic.
+- **App name**: for example `my-hrea-app`.
+- **Holonix environment**: yes, for reproducibility.
+- **Package manager**: your preference.
+- **Initial DNA**: yes.
+- **DNA name**: for example `my_dna`.
 
-For more detailed scaffolding instructions, you can refer to the official documentation:
-**[Holochain Forum App Tutorial - Scaffolding Steps](https://developer.holochain.org/get-started/3-forum-app-tutorial/)**
+!!! note "Check what you scaffolded"
 
-## Next Steps
+    hREA 0.5.0-beta only composes into a Holochain 0.7 hApp. After scaffolding, confirm the generated `flake.nix` and `Cargo.toml` target 0.7 (`hdk 0.7`, `hdi 0.8`) before adding hREA. A 0.6 app will not load the DNA.
 
-Once you have scaffolded your new application, you are ready to begin integrating the hREA modules. The next section, the **[Integration Guide](integration-guide.md)**, will walk you through the process of adding the hREA DNA to your project and configuring it correctly.
+## Next steps
 
+With a scaffolded application in place, continue to the **[Integration Guide](integration-guide.md)**, which adds the hREA DNA to your hApp and wires the GraphQL client.
+
+If you only want to consume a published release without reading the integration path end to end, **[Consuming a release](consuming-a-release.md)** covers the two artifacts and the version pinning contract.

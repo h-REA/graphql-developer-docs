@@ -31,6 +31,8 @@ An observed economic flow, as opposed to a flow planned to happen in the future.
 | `previous` | `[ProductionFlowItem!]` | The previous item(s) in a production flow. |
 | `next` | `[ProductionFlowItem!]` | The next item(s) in a production flow. |
 | `track` | `[TrackTraceItem!]` | The item(s) to track from this event. |
+| `settles` | `Claim` | The claim this event settles. ValueFlows 1.0, new in `happ-0.5.0-beta.1`. |
+| `reciprocalRealizationOf` | `Agreement` | The agreement this event reciprocally realises. ValueFlows 1.0, new in `happ-0.5.0-beta.1`. |
 | `trace` | `[TrackTraceItem!]` | The item(s) to trace from this event. |
 
 ## Queries
@@ -72,6 +74,8 @@ Deletes an `EconomicEvent`.
 | `note` | `String` | A textual description or comment. |
 | `agreedIn` | `URI` | A reference to an agreement governing this event. |
 | `triggeredBy` | `ID` | The ID of the `EconomicEvent` that triggered this event. |
+| `settles` | `ID` | The ID of the `Claim` this event settles. VF 1.0. |
+| `reciprocalRealizationOf` | `ID` | The ID of the `Agreement` this event reciprocally realises. VF 1.0. |
 | `toResourceInventoriedAs` | `ID` | The ID of the `EconomicResource` on the receiving side of a transfer or move. |
 | `satisfies` | `[ID!]` | The intents this economic event satisfies. |
 | `fulfills` | `[ID!]` | The commitments this economic event fulfills. |

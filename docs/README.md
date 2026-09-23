@@ -1,19 +1,27 @@
-# Welcome!
+# hREA Developer Docs
 
-## Welcome to hREA Developer Docs
+Documentation for building applications on the hREA GraphQL API.
 
-Welcome to hREA! Here you'll find all the documentation you need to get up and running with the hREA APIs. While this documentation discusses a set of GraphQL APIs, which could in general have multiple language implementations, all of this documentation is at this time focused on a library written for browser and nodejs based javascript projects.
+hREA implements the [ValueFlows](https://valueflo.ws) vocabulary on [Holochain](https://holochain.org). You talk to it in GraphQL, through the `@valueflows/vf-graphql-holochain` adapter, and the adapter turns your operations into calls against the hREA cell running in your hApp.
 
-> **ℹ️ Info:** If you're looking for more general information about hREA, check out the main website [https://hrea.io](https://hrea.io)
+!!! info "Current release"
 
-## Want to jump right in?
+    These pages describe **`happ-0.5.0-beta.1`**: Holochain 0.7, `@holochain/client` ^0.21.0, and the ValueFlows 1.0 surface. Earlier releases target earlier Holochain lines; see [Consuming a release](consuming-a-release.md).
 
-Feeling like an eager beaver? Jump in to the quick start docs and get making your first request:
+## Start here
 
-[Quick Start](quick-start.md)
+- **[Quick Start](quick-start.md)**: scaffold a Holochain 0.7 app to build on.
+- **[Integration Guide](integration-guide.md)**: add the hREA DNA to your hApp and install the client dependencies.
+- **[Basic Usage](basic-usage-lit.md)**: connect, query, mutate.
+- **[Consuming a release](consuming-a-release.md)**: which artifact to take, what to pin, what breaks when upgrading.
 
-## Want to deep dive?
+## Go deeper
 
-Dive a little deeper and start exploring our API reference to get an idea of everything that's possible with the API:
+- **[GraphQL API Reference](reference/graphql-api-reference/README.md)**: every type, query and mutation, and which of them the DNA actually implements.
+- **[Thinking and Expressing ValueFlows](thinking-and-expressing-valueflows.md)**: how to model an economic flow before you write the query.
 
-[GraphQL API Reference](reference/graphql-api-reference/README.md)
+## Elsewhere
+
+- [hrea.io](https://hrea.io) for what hREA is and who is building it.
+- [valueflo.ws](https://www.valueflo.ws) for the ontology itself.
+- The [hREA repository](https://github.com/h-REA/hREA), whose [`docs/`](https://github.com/h-REA/hREA/tree/sprout/docs) directory covers architecture, repository layout and contributing, for people working on hREA rather than with it.
